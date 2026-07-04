@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "company": "TCS",
+    "category": "Aptitude",
+    "topic": "Percentage",
+    "difficulty": "Easy",
+    "question": "What is 25% of 200?",
+    "options": ["25", "40", "50", "75"],
+    "answer": "50",
+    "explanation": "25% = 25/100. Therefore (25/100) × 200 = 50."
+  },
+  {
+    "id": 2,
+    "company": "Infosys",
+    "category": "Aptitude",
+    "topic": "Percentage",
+    "difficulty": "Easy",
+    "question": "40% of 250 equals?",
+    "options": ["80", "90", "100", "110"],
+    "answer": "100",
+    "explanation": "40/100 × 250 = 100."
+  },
+  {
+    "id": 3,
+    "company": "Wipro",
+    "category": "Aptitude",
+    "topic": "Percentage",
+    "difficulty": "Easy",
+    "question": "What is 15% of 400?",
+    "options": ["40", "50", "60", "70"],
+    "answer": "60",
+    "explanation": "15/100 × 400 = 60."
+  },
+  {
+    "id": 4,
+    "company": "Accenture",
+    "category": "Aptitude",
+    "topic": "Percentage",
+    "difficulty": "Medium",
+    "question": "A student's marks increase from 400 to 460. Find the percentage increase.",
+    "options": ["10%", "12%", "15%", "20%"],
+    "answer": "15%",
+    "explanation": "Increase = 60. Percentage increase = (60/400) × 100 = 15%."
+  },
+  {
+    "id": 5,
+    "company": "Capgemini",
+    "category": "Aptitude",
+    "topic": "Percentage",
+    "difficulty": "Medium",
+    "question": "A product costs ₹800. It is discounted by 25%. What is the selling price?",
+    "options": ["₹500", "₹550", "₹600", "₹650"],
+    "answer": "₹600",
+    "explanation": "25% of 800 = 200. Selling price = 800 − 200 = 600."
+  },
+  {
+    "id": 6,
+    "company": "Cognizant",
+    "category": "Aptitude",
+    "topic": "Percentage",
+    "difficulty": "Medium",
+    "question": "What is 60% of 350?",
+    "options": ["180", "190", "200", "210"],
+    "answer": "210",
+    "explanation": "60/100 × 350 = 210."
+  },
+  {
+    "id": 7,
+    "company": "HCL",
+    "category": "Aptitude",
+    "topic": "Percentage",
+    "difficulty": "Medium",
+    "question": "A salary increases from ₹20,000 to ₹24,000. What is the percentage increase?",
+    "options": ["15%", "18%", "20%", "25%"],
+    "answer": "20%",
+    "explanation": "Increase = 4000. (4000/20000) × 100 = 20%."
+  },
+  {
+    "id": 8,
+    "company": "IBM",
+    "category": "Aptitude",
+    "topic": "Percentage",
+    "difficulty": "Hard",
+    "question": "If 35% of a number is 140, what is the number?",
+    "options": ["350", "380", "400", "420"],
+    "answer": "400",
+    "explanation": "Number = 140 × 100 ÷ 35 = 400."
+  },
+  {
+    "id": 9,
+    "company": "Tech Mahindra",
+    "category": "Aptitude",
+    "topic": "Percentage",
+    "difficulty": "Hard",
+    "question": "The price of an item is increased by 10% and then decreased by 10%. What is the net percentage change?",
+    "options": ["0%", "1% decrease", "1% increase", "2% decrease"],
+    "answer": "1% decrease",
+    "explanation": "100 → 110 → 99. Net result = 1% decrease."
+  },
+  {
+    "id": 10,
+    "company": "Amazon",
+    "category": "Aptitude",
+    "topic": "Percentage",
+    "difficulty": "Hard",
+    "question": "A number is first increased by 20% and then decreased by 20%. What is the overall percentage change?",
+    "options": ["0%", "4% decrease", "4% increase", "2% decrease"],
+    "answer": "4% decrease",
+    "explanation": "100 → 120 → 96. Net result = 4% decrease."
+  }
+]

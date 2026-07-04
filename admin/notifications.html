@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Notification Management | PlaceMentor AI</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link
+rel="stylesheet"
+href="css/notifications.css">
+
+<link
+rel="stylesheet"
+href="../css/darkmode.css">
+
+<link
+rel="stylesheet"
+href="../css/toast.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- ================= HEADER ================= -->
+
+<div class="topbar">
+
+<h1>
+
+🔔 Notification Management
+
+</h1>
+
+<div class="top-actions">
+
+<input
+type="text"
+id="searchNotification"
+placeholder="Search Notification">
+
+<select id="typeFilter">
+
+<option value="All">
+
+All Types
+
+</option>
+
+<option value="Announcement">
+
+Announcement
+
+</option>
+
+<option value="Reminder">
+
+Reminder
+
+</option>
+
+<option value="Placement">
+
+Placement
+
+</option>
+
+<option value="Exam">
+
+Exam
+
+</option>
+
+<option value="Success">
+
+Success
+
+</option>
+
+</select>
+
+<button id="addNotificationBtn">
+
+<i class="fa-solid fa-plus"></i>
+
+Create Notification
+
+</button>
+
+<button
+onclick="location.href='dashboard.html'">
+
+Dashboard
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ================= SUMMARY ================= -->
+
+<div class="summary-card">
+
+<h2>
+
+Total Notifications
+
+</h2>
+
+<h1 id="notificationCount">
+
+0
+
+</h1>
+
+</div>
+
+<!-- ================= TABLE ================= -->
+
+<div class="table-card">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Title</th>
+
+<th>Message</th>
+
+<th>Type</th>
+
+<th>Date</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="notificationTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- ================= CREATE MODAL ================= -->
+
+<div
+id="notificationModal"
+class="modal">
+
+<div class="modal-content">
+
+<h2>
+
+➕ Create Notification
+
+</h2>
+
+<input
+type="text"
+id="notificationTitle"
+placeholder="Notification Title">
+
+<textarea
+id="notificationMessage"
+placeholder="Notification Message"></textarea>
+
+<select id="notificationType">
+
+<option value="Announcement">
+
+Announcement
+
+</option>
+
+<option value="Reminder">
+
+Reminder
+
+</option>
+
+<option value="Placement">
+
+Placement
+
+</option>
+
+<option value="Exam">
+
+Exam
+
+</option>
+
+<option value="Success">
+
+Success
+
+</option>
+
+</select>
+
+<div class="modal-buttons">
+
+<button id="saveNotificationBtn">
+
+💾 Save
+
+</button>
+
+<button id="closeNotificationModal">
+
+Cancel
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="../js/storage.js"></script>
+
+<script src="../js/toast.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/notifications.js"></script>
+
+</body>
+
+</html>

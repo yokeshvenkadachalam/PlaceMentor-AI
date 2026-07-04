@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>Master Admin Dashboard | PlaceMentor AI</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link
+rel="stylesheet"
+href="css/dashboard.css">
+
+<link
+rel="stylesheet"
+href="../css/darkmode.css">
+
+<link
+rel="stylesheet"
+href="../css/toast.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- ==========================================
+                SIDEBAR
+=========================================== -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<img
+src="../images/logo.png"
+class="logo-img"
+alt="Logo">
+
+<h2>
+
+Master Admin
+
+</h2>
+
+</div>
+
+<ul>
+
+<li class="active">
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+</li>
+
+<li>
+
+<a href="../admin/students.html">
+
+<i class="fa-solid fa-user-graduate"></i>
+
+Students
+
+</a>
+
+</li>
+
+<li>
+
+<a href="../admin/questions.html">
+
+<i class="fa-solid fa-circle-question"></i>
+
+Questions
+
+</a>
+
+</li>
+
+<li>
+
+<a href="../admin/categories.html">
+
+<i class="fa-solid fa-folder-open"></i>
+
+Categories
+
+</a>
+
+</li>
+
+<li>
+
+<a href="../admin/topics.html">
+
+<i class="fa-solid fa-book-open"></i>
+
+Topics
+
+</a>
+
+</li>
+
+<li>
+
+<a href="../admin/reports.html">
+
+<i class="fa-solid fa-chart-column"></i>
+
+Reports
+
+</a>
+
+</li>
+<!-- ========= MASTER ADMIN ONLY ========= -->
+
+<li>
+
+<a href="admin-management.html">
+
+<i class="fa-solid fa-user-shield"></i>
+
+Admin Management
+
+</a>
+
+</li>
+
+<li onclick="logoutMasterAdmin()">
+
+<a href="javascript:void(0)">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+</li>
+
+</ul>
+
+</aside>
+
+<!-- ==========================================
+                  MAIN
+=========================================== -->
+
+<main class="main">
+
+<!-- ==========================================
+                TOPBAR
+=========================================== -->
+
+<div class="topbar">
+
+<div>
+
+<h1>
+
+Welcome,
+
+<span id="adminName">
+
+Master Admin
+
+</span>
+
+👋
+
+</h1>
+
+<p>
+
+Manage the complete PlaceMentor AI platform.
+
+</p>
+
+</div>
+
+<div class="top-actions">
+
+<button
+class="admin-btn"
+onclick="location.href='admin-management.html'">
+
+<i class="fa-solid fa-user-plus"></i>
+
+Manage Admins
+
+</button>
+
+</div>
+
+</div>
+<!-- ==========================================
+                DASHBOARD STATISTICS
+=========================================== -->
+
+<div class="cards">
+
+    <div class="card">
+
+        <i class="fa-solid fa-user-graduate"></i>
+
+        <h2 id="totalStudents">0</h2>
+
+        <p>Total Students</p>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-circle-question"></i>
+
+        <h2 id="totalQuestions">0</h2>
+
+        <p>Total Questions</p>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-user-shield"></i>
+
+        <h2 id="totalAdmins">0</h2>
+
+        <p>Admins</p>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        <h2 id="averageScore">0%</h2>
+
+        <p>Average Score</p>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+                QUICK ACTIONS
+=========================================== -->
+
+<div class="quick-actions">
+
+    <button
+        onclick="location.href='../admin/students.html'">
+
+        👨‍🎓 Students
+
+    </button>
+
+    <button
+        onclick="location.href='../admin/questions.html'">
+
+        ❓ Questions
+
+    </button>
+
+    <button
+        onclick="location.href='../admin/categories.html'">
+
+        📂 Categories
+
+    </button>
+
+    <button
+        onclick="location.href='../admin/topics.html'">
+
+        📚 Topics
+
+    </button>
+
+    <button
+        onclick="location.href='../admin/reports.html'">
+
+        📄 Reports
+
+    </button>
+    <button
+    class="master-btn"
+    onclick="location.href='view-admin.html'">
+
+    👁 View Admins
+
+</button>
+
+    <!-- ================= MASTER ADMIN ================= -->
+
+    <button
+        class="master-btn"
+        onclick="location.href='admin-management.html'">
+
+        👥 Admin Management
+
+    </button>
+
+    <button
+        class="master-btn"
+        onclick="location.href='create-admin.html'">
+
+        ➕ Create Admin
+
+    </button>
+
+</div>
+
+<!-- ==========================================
+                MASTER ADMIN SUMMARY
+=========================================== -->
+
+<div class="summary-grid">
+
+    <div class="summary-card">
+
+        <div class="summary-icon">
+
+            <i class="fa-solid fa-user-check"></i>
+
+        </div>
+
+        <div>
+
+            <h3>
+
+                Active Admins
+
+            </h3>
+
+            <h2 id="activeAdmins">
+
+                0
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="summary-card">
+
+        <div class="summary-icon">
+
+            <i class="fa-solid fa-user-slash"></i>
+
+        </div>
+
+        <div>
+
+            <h3>
+
+                Inactive Admins
+
+            </h3>
+
+            <h2 id="inactiveAdmins">
+
+                0
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="summary-card">
+
+        <div class="summary-icon">
+
+            <i class="fa-solid fa-crown"></i>
+
+        </div>
+
+        <div>
+
+            <h3>
+
+                Master Admins
+
+            </h3>
+
+            <h2 id="masterAdmins">
+
+                1
+
+            </h2>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ==========================================
+                STUDENT GROWTH CHART
+=========================================== -->
+
+<div class="chart-card">
+
+    <div class="section-header">
+
+        <h2>
+
+            📈 Student Growth
+
+        </h2>
+
+        <span>
+
+            Monthly Registrations
+
+        </span>
+
+    </div>
+
+    <canvas id="studentChart"></canvas>
+
+</div>
+
+<!-- ==========================================
+                TABLE SECTION
+=========================================== -->
+
+<div class="grid">
+
+    <!-- ============================
+            RECENT STUDENTS
+    ============================= -->
+
+    <div class="table-card">
+
+        <div class="section-header">
+
+            <h2>
+
+                👨‍🎓 Recent Students
+
+            </h2>
+
+            <a
+                href="../admin/students.html"
+                class="view-all">
+
+                View All
+
+            </a>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Name</th>
+
+                    <th>Student ID</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="studentTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- ============================
+            RECENT ADMINS
+    ============================= -->
+
+    <div class="table-card">
+
+        <div class="section-header">
+
+            <h2>
+
+                👥 Recent Admins
+
+            </h2>
+
+            <a
+                href="admin-management.html"
+                class="view-all">
+
+                Manage
+
+            </a>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Name</th>
+
+                    <th>User ID</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="adminTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+                FOOTER
+=========================================== -->
+
+<footer>
+
+    <p>
+
+        © 2026 PlaceMentor AI • Master Admin Portal • Developed by Yokesh V
+
+    </p>
+
+</footer>
+
+</main>
+
+</div>
+
+<!-- ==========================================
+                COMMON JS
+=========================================== -->
+
+<script src="../js/storage.js"></script>
+
+<script src="../js/toast.js"></script>
+
+<script src="../js/api.js"></script>
+<script src="../js/common.js"></script>
+<script src="js/auth.js"></script>
+
+<!-- ==========================================
+                MASTER ADMIN JS
+=========================================== -->
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

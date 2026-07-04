@@ -1,0 +1,1798 @@
+/* ==========================================================
+   PlaceMentor AI
+   Admin Reports Dashboard
+   Author : PlaceMentor AI
+========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:#F4F8FC;
+
+    color:#1E293B;
+
+    overflow-x:hidden;
+
+}
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root{
+
+    --primary:#2563EB;
+
+    --primary-light:#3B82F6;
+
+    --secondary:#64748B;
+
+    --success:#16A34A;
+
+    --danger:#DC2626;
+
+    --warning:#F59E0B;
+
+    --purple:#7C3AED;
+
+    --dark:#1E293B;
+
+    --gray:#94A3B8;
+
+    --light:#F8FAFC;
+
+    --card:#FFFFFF;
+
+    --border:#E2E8F0;
+
+    --shadow:
+
+        0 12px 35px rgba(0,0,0,.08);
+
+    --shadow-hover:
+
+        0 20px 50px rgba(37,99,235,.18);
+
+    --radius:20px;
+
+}
+
+/* ==========================================================
+   PAGE
+========================================================== */
+
+.reports-page{
+
+    width:95%;
+
+    max-width:1700px;
+
+    margin:35px auto 60px;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #2563EB,
+
+            #3B82F6,
+
+            #60A5FA
+
+        );
+
+    border-radius:28px;
+
+    padding:38px;
+
+    margin-bottom:35px;
+
+    color:white;
+
+    box-shadow:
+
+        0 20px 45px rgba(37,99,235,.25);
+
+}
+
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:24px;
+
+}
+
+.page-icon{
+
+    width:90px;
+
+    height:90px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:24px;
+
+    background:
+
+        rgba(255,255,255,.18);
+
+    backdrop-filter:blur(18px);
+
+}
+
+.page-icon i{
+
+    font-size:42px;
+
+}
+
+.page-header h1{
+
+    font-size:38px;
+
+    font-weight:800;
+
+    color:white;
+
+}
+
+.page-header p{
+
+    margin-top:8px;
+
+    color:
+
+        rgba(255,255,255,.92);
+
+    line-height:1.6;
+
+    max-width:650px;
+
+}
+
+/* ==========================================================
+   DASHBOARD BUTTON
+========================================================== */
+
+.dashboard-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:15px 28px;
+
+    background:white;
+
+    color:var(--primary);
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.dashboard-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+        0 12px 35px rgba(0,0,0,.18);
+
+}
+
+/* ==========================================================
+   SECTION TITLE
+========================================================== */
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:22px;
+
+}
+
+.section-title i{
+
+    color:var(--primary);
+
+    font-size:24px;
+
+}
+
+.section-title h2{
+
+    font-size:24px;
+
+    color:var(--dark);
+
+    font-weight:700;
+
+}
+/* ==========================================================
+   FILTER CARD
+========================================================== */
+
+.filter-card{
+
+    background:var(--card);
+
+    border-radius:var(--radius);
+
+    padding:30px;
+
+    margin-bottom:35px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.filter-card:hover{
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+.filter-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:28px;
+
+}
+
+.filter-title i{
+
+    color:var(--primary);
+
+    font-size:22px;
+
+}
+
+.filter-title span{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:var(--dark);
+
+}
+
+/* ==========================================================
+   FILTER GRID
+========================================================== */
+
+.filter-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(220px,1fr));
+
+    gap:22px;
+
+}
+
+/* ==========================================================
+   FORM GROUP
+========================================================== */
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.form-group label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:10px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#475569;
+
+}
+
+.form-group label i{
+
+    color:var(--primary);
+
+    width:18px;
+
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.form-group input,
+
+.form-group select{
+
+    width:100%;
+
+    height:52px;
+
+    padding:0 16px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    outline:none;
+
+    background:white;
+
+    font-size:15px;
+
+    transition:.30s;
+
+}
+
+.form-group input:hover,
+
+.form-group select:hover{
+
+    border-color:#93C5FD;
+
+}
+
+.form-group input:focus,
+
+.form-group select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:
+
+        0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+/* ==========================================================
+   BUTTON AREA
+========================================================== */
+
+.button-group{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+    margin-top:30px;
+
+}
+
+/* ==========================================================
+   COMMON BUTTON
+========================================================== */
+
+.button-group button{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:14px 24px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    transition:.30s;
+
+    min-width:180px;
+
+}
+
+.button-group button:hover{
+
+    transform:
+
+        translateY(-4px);
+
+}
+
+/* ==========================================================
+   BUTTON COLORS
+========================================================== */
+
+.btn-primary{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #2563EB,
+
+            #3B82F6
+
+        );
+
+}
+
+.btn-secondary{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #64748B,
+
+            #94A3B8
+
+        );
+
+}
+
+.btn-success{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #16A34A,
+
+            #4ADE80
+
+        );
+
+}
+
+.btn-danger{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #DC2626,
+
+            #EF4444
+
+        );
+
+}
+
+.btn-primary:hover{
+
+    box-shadow:
+
+        0 10px 28px rgba(37,99,235,.30);
+
+}
+
+.btn-secondary:hover{
+
+    box-shadow:
+
+        0 10px 28px rgba(100,116,139,.25);
+
+}
+
+.btn-success:hover{
+
+    box-shadow:
+
+        0 10px 28px rgba(22,163,74,.25);
+
+}
+
+.btn-danger:hover{
+
+    box-shadow:
+
+        0 10px 28px rgba(220,38,38,.25);
+
+}
+
+/* ==========================================================
+   ANALYTICS DASHBOARD
+========================================================== */
+
+.analytics-section{
+
+    margin:40px 0;
+
+}
+
+/* ==========================================================
+   SUMMARY GRID
+========================================================== */
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(250px,1fr));
+
+    gap:24px;
+
+}
+
+/* ==========================================================
+   SUMMARY CARD
+========================================================== */
+
+.summary-card{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:26px;
+
+    background:white;
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.summary-card:hover{
+
+    transform:
+
+        translateY(-8px);
+
+    box-shadow:
+
+        var(--shadow-hover);
+
+}
+
+/* ==========================================================
+   TOP BORDER
+========================================================== */
+
+.summary-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:var(--primary);
+
+}
+
+/* ==========================================================
+   ICON BOX
+========================================================== */
+
+.card-icon{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:28px;
+
+    flex-shrink:0;
+
+}
+
+/* ==========================================================
+   CONTENT
+========================================================== */
+
+.card-content{
+
+    flex:1;
+
+}
+
+.card-content span{
+
+    display:block;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#64748B;
+
+    margin-bottom:8px;
+
+}
+
+.card-content h2{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:var(--dark);
+
+}
+
+/* ==========================================================
+   COLORS
+========================================================== */
+
+.summary-card.blue::before{
+
+    background:#2563EB;
+
+}
+
+.summary-card.green::before{
+
+    background:#16A34A;
+
+}
+
+.summary-card.red::before{
+
+    background:#DC2626;
+
+}
+
+.summary-card.purple::before{
+
+    background:#7C3AED;
+
+}
+
+.summary-card.orange::before{
+
+    background:#EA580C;
+
+}
+
+.summary-card.gold::before{
+
+    background:#CA8A04;
+
+}
+
+.summary-card.gray::before{
+
+    background:#475569;
+
+}
+
+/* ==========================================================
+   ICON BACKGROUNDS
+========================================================== */
+
+.summary-card.blue .card-icon{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #2563EB,
+
+            #60A5FA
+
+        );
+
+}
+
+.summary-card.green .card-icon{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #16A34A,
+
+            #4ADE80
+
+        );
+
+}
+
+.summary-card.red .card-icon{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #DC2626,
+
+            #F87171
+
+        );
+
+}
+
+.summary-card.purple .card-icon{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #7C3AED,
+
+            #A78BFA
+
+        );
+
+}
+
+.summary-card.orange .card-icon{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #EA580C,
+
+            #FB923C
+
+        );
+
+}
+
+.summary-card.gold .card-icon{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #CA8A04,
+
+            #FACC15
+
+        );
+
+}
+
+.summary-card.gray .card-icon{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #475569,
+
+            #94A3B8
+
+        );
+
+}
+
+/* ==========================================================
+   SHINE EFFECT
+========================================================== */
+
+.summary-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-140%;
+
+    left:-45%;
+
+    width:70px;
+
+    height:300%;
+
+    background:
+
+        rgba(255,255,255,.28);
+
+    transform:rotate(25deg);
+
+    transition:.8s;
+
+}
+
+.summary-card:hover::after{
+
+    left:140%;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px){
+
+    .summary-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .summary-card{
+
+        padding:22px;
+
+    }
+
+    .card-content h2{
+
+        font-size:28px;
+
+    }
+
+}
+/* ==========================================================
+   CHARTS SECTION
+========================================================== */
+
+.charts-section{
+
+    margin:45px 0;
+
+}
+
+/* ==========================================================
+   CHART GRID
+========================================================== */
+
+.chart-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+}
+
+/* ==========================================================
+   CHART CARD
+========================================================== */
+
+.chart-card{
+
+    position:relative;
+
+    background:var(--card);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+.chart-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+/* ==========================================================
+   TOP BORDER
+========================================================== */
+
+.chart-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            #2563EB,
+
+            #3B82F6,
+
+            #60A5FA
+
+        );
+
+}
+
+/* ==========================================================
+   CHART TITLE
+========================================================== */
+
+.chart-card h3{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:var(--dark);
+
+    margin-bottom:24px;
+
+}
+
+.chart-card h3 i{
+
+    color:var(--primary);
+
+    font-size:20px;
+
+}
+
+/* ==========================================================
+   CANVAS
+========================================================== */
+
+.chart-card canvas{
+
+    width:100% !important;
+
+    height:340px !important;
+
+}
+
+/* ==========================================================
+   CHART FOOTER
+========================================================== */
+
+.chart-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:18px;
+
+    color:var(--secondary);
+
+    font-size:13px;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:1200px){
+
+    .chart-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .chart-card{
+
+        padding:22px;
+
+    }
+
+    .chart-card canvas{
+
+        height:280px !important;
+
+    }
+
+}
+
+/* ==========================================================
+   REPORT TABLE
+========================================================== */
+
+.table-section{
+
+    margin:45px 0;
+
+}
+
+.table-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.table-header h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:24px;
+
+    color:var(--dark);
+
+    font-weight:700;
+
+}
+
+.table-header h2 i{
+
+    color:var(--primary);
+
+}
+
+.table-header p{
+
+    margin-top:6px;
+
+    color:var(--secondary);
+
+    font-size:14px;
+
+}
+
+/* ==========================================================
+   TABLE WRAPPER
+========================================================== */
+
+.table-wrapper{
+
+    background:white;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    overflow-x:auto;
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.table-wrapper table{
+
+    width:100%;
+
+    min-width:1200px;
+
+    border-collapse:collapse;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.table-wrapper thead{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:10;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            #2563EB,
+
+            #3B82F6
+
+        );
+
+}
+
+.table-wrapper thead th{
+
+    color:white;
+
+    text-align:left;
+
+    padding:18px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+.table-wrapper tbody td{
+
+    padding:18px;
+
+    border-bottom:1px solid #EDF2F7;
+
+    font-size:14px;
+
+    color:#334155;
+
+    transition:.30s;
+
+    white-space:nowrap;
+
+}
+
+.table-wrapper tbody tr{
+
+    transition:.30s;
+
+}
+
+.table-wrapper tbody tr:nth-child(even){
+
+    background:#FAFBFC;
+
+}
+
+.table-wrapper tbody tr:hover{
+
+    background:#EFF6FF;
+
+}
+
+/* ==========================================================
+   PERCENTAGE
+========================================================== */
+
+.table-wrapper tbody td:nth-child(8){
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+/* ==========================================================
+   STATUS
+========================================================== */
+
+.status-pass{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:90px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+    border:1px solid #BBF7D0;
+
+    font-weight:700;
+
+}
+
+.status-fail{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:90px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:#FEE2E2;
+
+    color:#DC2626;
+
+    border:1px solid #FECACA;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   EMPTY STATE
+========================================================== */
+
+.empty-row{
+
+    padding:60px !important;
+
+    text-align:center;
+
+}
+
+.empty-state{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:16px;
+
+}
+
+.empty-state i{
+
+    font-size:58px;
+
+    color:#2563EB;
+
+}
+
+.empty-state h3{
+
+    font-size:24px;
+
+    color:#1E293B;
+
+}
+
+.empty-state p{
+
+    color:#64748B;
+
+    max-width:450px;
+
+    line-height:1.6;
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+.table-wrapper::-webkit-scrollbar{
+
+    height:10px;
+
+}
+
+.table-wrapper::-webkit-scrollbar-track{
+
+    background:#E2E8F0;
+
+}
+
+.table-wrapper::-webkit-scrollbar-thumb{
+
+    background:#94A3B8;
+
+    border-radius:20px;
+
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover{
+
+    background:#64748B;
+
+}
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.reports-footer{
+
+    margin-top:45px;
+
+    padding:22px 28px;
+
+    border-radius:18px;
+
+    background:white;
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:var(--secondary);
+
+    font-size:14px;
+
+}
+
+.footer-left{
+
+    font-weight:600;
+
+}
+
+.footer-right{
+
+    color:var(--primary);
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   GLASS EFFECT
+========================================================== */
+
+.filter-card,
+
+.summary-card,
+
+.chart-card,
+
+.table-wrapper,
+
+.reports-footer{
+
+    backdrop-filter:blur(12px);
+
+}
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.filter-card{
+
+    animation:fadeUp .5s ease;
+
+}
+
+.analytics-section{
+
+    animation:fadeUp .6s ease;
+
+}
+
+.charts-section{
+
+    animation:fadeUp .7s ease;
+
+}
+
+.table-section{
+
+    animation:fadeUp .8s ease;
+
+}
+
+/* ==========================================================
+   LOADING SPINNER
+========================================================== */
+
+.loading{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px;
+
+}
+
+.loading::after{
+
+    content:"";
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:5px solid #E2E8F0;
+
+    border-top:5px solid var(--primary);
+
+    animation:spin .8s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ==========================================================
+   UTILITY CLASSES
+========================================================== */
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.text-right{
+
+    text-align:right;
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.w-100{
+
+    width:100%;
+
+}
+
+.mt-20{
+
+    margin-top:20px;
+
+}
+
+.mb-20{
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:1200px){
+
+    .reports-page{
+
+        width:96%;
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    .page-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:25px;
+
+    }
+
+    .header-left{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .button-group{
+
+        justify-content:flex-start;
+
+    }
+
+    .reports-footer{
+
+        flex-direction:column;
+
+        gap:10px;
+
+        text-align:center;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .filter-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .button-group{
+
+        flex-direction:column;
+
+    }
+
+    .button-group button{
+
+        width:100%;
+
+    }
+
+    .summary-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .table-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .reports-page{
+
+        width:98%;
+
+        margin:20px auto;
+
+    }
+
+    .page-header{
+
+        padding:25px;
+
+    }
+
+    .page-header h1{
+
+        font-size:30px;
+
+    }
+
+    .page-icon{
+
+        width:70px;
+
+        height:70px;
+
+    }
+
+    .page-icon i{
+
+        font-size:30px;
+
+    }
+
+    .filter-card,
+
+    .summary-card,
+
+    .chart-card{
+
+        padding:20px;
+
+    }
+
+    .table-wrapper thead th,
+
+    .table-wrapper tbody td{
+
+        padding:14px;
+
+        font-size:13px;
+
+    }
+
+}
+
+/* ==========================================================
+   SELECTION
+========================================================== */
+
+::selection{
+
+    background:var(--primary);
+
+    color:white;
+
+}

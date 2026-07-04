@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Student Profile | PlaceMentor AI</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="css/profile.css">
+
+<link rel="stylesheet"
+href="css/toast.css">
+
+<link rel="stylesheet"
+href="css/darkmode.css">
+
+</head>
+
+<body>
+
+<div class="profile-container">
+
+<div class="profile-card">
+
+<!-- =====================================
+PROFILE HEADER
+===================================== -->
+
+<div class="profile-header">
+
+<div class="profile-image-wrapper">
+
+<img
+id="profileImage"
+src="images/default-profile.png"
+alt="Profile">
+
+<input
+type="file"
+id="photoInput"
+accept="image/*"
+hidden>
+
+<button
+id="changePhotoBtn"
+class="photo-btn">
+
+<i class="fa-solid fa-camera"></i>
+
+Change Photo
+
+</button>
+
+</div>
+
+<div class="profile-summary">
+
+<h1 id="studentName">
+
+Loading...
+
+</h1>
+
+<p id="studentRole">
+
+Student
+
+</p>
+
+<p id="studentCollegeHeader">
+
+College
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =====================================
+PROFILE COMPLETION
+===================================== -->
+
+<div class="completion-card">
+
+<div class="completion-top">
+
+<h3>
+
+Profile Completion
+
+</h3>
+
+<span
+id="completionPercent">
+
+0%
+
+</span>
+
+</div>
+
+<div class="completion-bar">
+
+<div
+id="completionFill"
+class="completion-fill">
+
+</div>
+
+</div>
+
+<p
+id="completionMessage">
+
+Complete your profile to unlock all features.
+
+</p>
+
+</div>
+<!-- =====================================
+PERSONAL INFORMATION
+===================================== -->
+
+<div class="section-card">
+
+    <h2>
+
+        <i class="fa-solid fa-user"></i>
+
+        Personal Information
+
+    </h2>
+
+    <div class="profile-grid">
+
+        <div class="input-group">
+
+            <label>
+
+                First Name
+
+            </label>
+
+            <input
+                type="text"
+                id="firstName"
+                placeholder="Enter First Name">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Last Name
+
+            </label>
+
+            <input
+                type="text"
+                id="lastName"
+                placeholder="Enter Last Name">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Student ID
+
+            </label>
+
+            <input
+                type="text"
+                id="studentId"
+                readonly>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Email
+
+            </label>
+
+            <input
+                type="email"
+                id="studentEmail"
+                readonly>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Mobile Number
+
+            </label>
+
+            <input
+                type="text"
+                id="mobile"
+                placeholder="9876543210">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Gender
+
+            </label>
+
+            <select id="gender">
+
+                <option value="">Select Gender</option>
+
+                <option value="Male">Male</option>
+
+                <option value="Female">Female</option>
+
+                <option value="Other">Other</option>
+
+            </select>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Date of Birth
+
+            </label>
+
+            <input
+                type="date"
+                id="dateOfBirth">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =====================================
+ADDRESS
+===================================== -->
+
+<div class="section-card">
+
+    <h2>
+
+        <i class="fa-solid fa-location-dot"></i>
+
+        Address
+
+    </h2>
+
+    <div class="profile-grid">
+
+        <div class="input-group full-width">
+
+            <label>
+
+                Address
+
+            </label>
+
+            <textarea
+                id="address"
+                rows="3"
+                placeholder="Enter Address"></textarea>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                City
+
+            </label>
+
+            <input
+                type="text"
+                id="city">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                State
+
+            </label>
+
+            <input
+                type="text"
+                id="state">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Country
+
+            </label>
+
+            <input
+                type="text"
+                id="country">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =====================================
+EDUCATION
+===================================== -->
+
+<div class="section-card">
+
+    <h2>
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+        Education
+
+    </h2>
+
+    <div class="profile-grid">
+
+        <div class="input-group">
+
+            <label>
+
+                College
+
+            </label>
+
+            <input
+                type="text"
+                id="college">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Department
+
+            </label>
+
+            <input
+                type="text"
+                id="department">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Year of Study
+
+            </label>
+
+            <select id="yearOfStudy">
+
+                <option>1st Year</option>
+
+                <option>2nd Year</option>
+
+                <option>3rd Year</option>
+
+                <option>Final Year</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =====================================
+PROFESSIONAL INFORMATION
+===================================== -->
+
+<div class="section-card">
+
+    <h2>
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        Professional Information
+
+    </h2>
+
+    <div class="profile-grid">
+
+        <div class="input-group full-width">
+
+            <label>
+
+                Skills
+
+            </label>
+
+            <textarea
+                id="skills"
+                rows="4"
+                placeholder="Java, Spring Boot, SQL, Angular, HTML, CSS, JavaScript"></textarea>
+
+        </div>
+
+        <div class="input-group full-width">
+
+            <label>
+
+                About Me
+
+            </label>
+
+            <textarea
+                id="about"
+                rows="6"
+                placeholder="Write a short professional summary about yourself..."></textarea>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =====================================
+RESUME
+===================================== -->
+
+<div class="section-card">
+
+    <h2>
+
+        <i class="fa-solid fa-file-lines"></i>
+
+        Resume
+
+    </h2>
+
+    <div class="resume-card">
+
+        <div class="resume-info">
+
+            <i class="fa-solid fa-file-pdf resume-icon"></i>
+
+            <div>
+
+                <h3 id="resumeName">
+
+                    No Resume Uploaded
+
+                </h3>
+
+                <p>
+
+                    PDF/DOC/DOCX (Maximum 5 MB)
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <input
+            type="file"
+            id="resumeInput"
+            accept=".pdf,.doc,.docx"
+            hidden>
+
+        <div class="resume-buttons">
+
+            <button
+                type="button"
+                id="uploadResumeBtn">
+
+                <i class="fa-solid fa-upload"></i>
+
+                Upload Resume
+
+            </button>
+
+            <button
+                type="button"
+                id="previewResumeBtn">
+
+                <i class="fa-solid fa-eye"></i>
+
+                Preview Resume
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================
+ACTION BUTTONS
+===================================== -->
+
+<div class="profile-actions">
+
+    <button
+        type="button"
+        id="saveProfileBtn"
+        class="primary-btn">
+
+        <i class="fa-solid fa-floppy-disk"></i>
+
+        Save Profile
+
+    </button>
+
+    <button
+        type="button"
+        id="resetProfileBtn"
+        class="secondary-btn">
+
+        <i class="fa-solid fa-rotate-left"></i>
+
+        Reset
+
+    </button>
+
+    <button
+        type="button"
+        onclick="window.location.href='dashboard.html'"
+        class="secondary-btn">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Dashboard
+
+    </button>
+
+</div>
+
+
+
+
+</div>
+<!-- End of Profile Card -->
+
+</div>
+<!-- End of Profile Container -->
+
+<script src="js/toast.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/api.js"></script>
+<script src="js/profile.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+/* ==========================================
+   PlaceMentor AI
+   Question Details
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    background:#F1F5F9;
+
+    color:#1E293B;
+
+    padding:30px;
+
+}
+
+.page{
+
+    max-width:1100px;
+
+    margin:auto;
+
+}
+
+/* ==========================================
+   TOPBAR
+========================================== */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+.topbar h1{
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+.topbar button{
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563EB;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.topbar button:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   DETAILS CARD
+========================================== */
+
+.details-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.detail-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 0;
+
+    border-bottom:1px solid #E2E8F0;
+
+}
+
+.detail-row label{
+
+    font-weight:700;
+
+    color:#334155;
+
+}
+
+.detail-row span{
+
+    color:#475569;
+
+    text-align:right;
+
+    font-weight:500;
+
+}
+
+hr{
+
+    margin:25px 0;
+
+    border:none;
+
+    border-top:1px solid #E2E8F0;
+
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.detail-block{
+
+    margin-bottom:28px;
+
+}
+
+.detail-block h3{
+
+    color:#2563EB;
+
+    margin-bottom:12px;
+
+    font-size:20px;
+
+}
+
+.detail-block p{
+
+    line-height:1.8;
+
+    color:#475569;
+
+}
+
+/* ==========================================
+   OPTIONS
+========================================== */
+
+.options-list{
+
+    list-style:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.options-list li{
+
+    background:#F8FAFC;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:10px;
+
+    padding:14px 18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.options-list strong{
+
+    color:#2563EB;
+
+    min-width:30px;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+    body{
+
+        padding:20px;
+
+    }
+
+    .topbar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .topbar button{
+
+        width:100%;
+
+    }
+
+    .details-card{
+
+        padding:22px;
+
+    }
+
+    .detail-row{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:8px;
+
+    }
+
+    .detail-row span{
+
+        text-align:left;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .topbar h1{
+
+        font-size:26px;
+
+    }
+
+    .details-card{
+
+        padding:18px;
+
+    }
+
+}

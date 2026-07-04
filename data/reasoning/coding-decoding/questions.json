@@ -1,0 +1,113 @@
+
+[
+  {
+    "id": 1,
+    "company": "TCS",
+    "category": "Reasoning",
+    "topic": "Coding-Decoding",
+    "difficulty": "Easy",
+    "question": "If CAT is coded as DBU, how is DOG coded?",
+    "options": ["EPH", "EPG", "EOH", "FQI"],
+    "answer": "EPH",
+    "explanation": "Each letter is shifted by +1: D→E, O→P, G→H."
+  },
+  {
+    "id": 2,
+    "company": "Infosys",
+    "category": "Reasoning",
+    "topic": "Coding-Decoding",
+    "difficulty": "Easy",
+    "question": "If PEN is coded as QFO, what is BOOK?",
+    "options": ["CPPL", "CPPM", "CPQL", "BPPL"],
+    "answer": "CPPL",
+    "explanation": "Each letter is shifted forward by one."
+  },
+  {
+    "id": 3,
+    "company": "Wipro",
+    "category": "Reasoning",
+    "topic": "Coding-Decoding",
+    "difficulty": "Medium",
+    "question": "If APPLE is coded as BQQMF, how is MANGO coded?",
+    "options": ["NBOHP", "NBOPH", "NBOGP", "NBOHO"],
+    "answer": "NBOHP",
+    "explanation": "Each character moves one step forward."
+  },
+  {
+    "id": 4,
+    "company": "Accenture",
+    "category": "Reasoning",
+    "topic": "Coding-Decoding",
+    "difficulty": "Medium",
+    "question": "If SKY is coded as TLZ, how is SUN coded?",
+    "options": ["TVO", "TVN", "SVN", "UVN"],
+    "answer": "TVO",
+    "explanation": "Each alphabet advances by one."
+  },
+  {
+    "id": 5,
+    "company": "Capgemini",
+    "category": "Reasoning",
+    "topic": "Coding-Decoding",
+    "difficulty": "Medium",
+    "question": "If BIRD is coded as CJSE, what is FISH?",
+    "options": ["GJTI", "GJSH", "GITH", "HJTI"],
+    "answer": "GJTI",
+    "explanation": "Each letter increases by one."
+  },
+  {
+    "id": 6,
+    "company": "Cognizant",
+    "category": "Reasoning",
+    "topic": "Coding-Decoding",
+    "difficulty": "Hard",
+    "question": "If CODE is coded as DPEF, what is JAVA?",
+    "options": ["KBWB", "KBVA", "LBWB", "KBXA"],
+    "answer": "KBWB",
+    "explanation": "Each letter shifts by +1."
+  },
+  {
+    "id": 7,
+    "company": "IBM",
+    "category": "Reasoning",
+    "topic": "Coding-Decoding",
+    "difficulty": "Hard",
+    "question": "If TEST is coded as UFTU, what is MOCK?",
+    "options": ["NPDL", "NPDK", "NPDL", "NQDL"],
+    "answer": "NPDL",
+    "explanation": "Each character shifts one position."
+  },
+  {
+    "id": 8,
+    "company": "Amazon",
+    "category": "Reasoning",
+    "topic": "Coding-Decoding",
+    "difficulty": "Easy",
+    "question": "If KING is coded as LJOH, what is QUEEN?",
+    "options": ["RVFFO", "RVGFO", "RVFFP", "SVFFO"],
+    "answer": "RVFFO",
+    "explanation": "Every alphabet is shifted by +1."
+  },
+  {
+    "id": 9,
+    "company": "Tech Mahindra",
+    "category": "Reasoning",
+    "topic": "Coding-Decoding",
+    "difficulty": "Medium",
+    "question": "If HOME is coded as IPNF, what is ROOM?",
+    "options": ["SPPN", "SPON", "SPPM", "SQPN"],
+    "answer": "SPPN",
+    "explanation": "Each letter advances one step."
+  },
+  {
+    "id": 10,
+    "company": "Google",
+    "category": "Reasoning",
+    "topic": "Coding-Decoding",
+    "difficulty": "Hard",
+    "question": "If CLOUD is coded as DMPVE, what is SMART?",
+    "options": ["TNBSU", "TNASU", "UNBSU", "SNBSU"],
+    "answer": "TNBSU",
+    "explanation": "Each letter is increased by one."
+  }
+]

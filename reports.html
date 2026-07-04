@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Reports | PlaceMentor AI</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="css/reports.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="css/toast.css">
+<link rel="stylesheet" href="css/darkmode.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <h1>
+
+            📊 Performance Reports
+
+        </h1>
+
+        <button
+        onclick="window.location.href='dashboard.html'">
+
+            ← Dashboard
+
+        </button>
+
+    </header>
+
+    <!-- SUMMARY -->
+
+    <section class="summary">
+
+        <div class="card">
+
+            <h2 id="totalTests">
+
+                0
+
+            </h2>
+
+            <p>Total Tests</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2 id="highestScore">
+
+                0%
+
+            </h2>
+
+            <p>Highest Score</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2 id="averageScore">
+
+                0%
+
+            </h2>
+
+            <p>Average Score</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2 id="accuracy">
+
+                0%
+
+            </h2>
+
+            <p>Accuracy</p>
+
+        </div>
+
+    </section>
+
+    <!-- CHARTS -->
+
+    <section class="charts">
+
+        <div class="chart-card">
+
+            <h2>
+
+                📈 Performance Trend
+
+            </h2>
+
+            <canvas id="lineChart"></canvas>
+
+        </div>
+
+        <div class="chart-card">
+
+            <h2>
+
+                🥧 Score Distribution
+
+            </h2>
+
+            <canvas id="pieChart"></canvas>
+
+        </div>
+
+    </section>
+    <!-- ================= INSIGHTS ================= -->
+
+<section class="insights">
+
+    <div class="insight-card">
+
+        <h2>📈 Performance Trend</h2>
+
+        <h3 id="performanceTrend">
+
+            --
+
+        </h3>
+
+    </div>
+
+    <div class="insight-card">
+
+        <h2>🎯 Recommendation</h2>
+
+        <p id="recommendation">
+
+            --
+
+        </p>
+
+    </div>
+
+    <div class="insight-card">
+
+        <h2>🏆 Best Performance</h2>
+
+        <h3 id="bestQuiz">
+
+            --
+
+        </h3>
+
+    </div>
+
+    <div class="insight-card">
+
+        <h2>📉 Lowest Performance</h2>
+
+        <h3 id="lowestQuiz">
+
+            --
+
+        </h3>
+
+    </div>
+
+    <div class="insight-card">
+
+        <h2>🔥 Consistency</h2>
+
+        <h3 id="consistency">
+
+            --
+
+        </h3>
+
+    </div>
+
+</section>
+<!-- ================= AI INSIGHTS ================= -->
+
+<section class="ai-insights">
+
+    <h2>🤖 AI Performance Analysis</h2>
+
+    <div id="aiInsights" class="ai-grid">
+
+    </div>
+
+</section>
+
+    <!-- TOPIC ANALYSIS -->
+
+    <section class="topics">
+
+        <div class="topic-box">
+
+            <h2>
+
+                💪 Strong Topics
+
+            </h2>
+
+            <ul id="strongTopics">
+
+            </ul>
+
+        </div>
+
+        <div class="topic-box">
+
+            <h2>
+
+                🧠 Weak Topics
+
+            </h2>
+
+            <ul id="weakTopics">
+
+            </ul>
+
+        </div>
+
+    </section>
+    <!-- ================= TOPIC PERFORMANCE ================= -->
+
+<section class="topic-performance">
+
+    <h2>
+
+        📚 Topic Performance
+
+    </h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Category</th>
+
+                <th>Average</th>
+
+                <th>Progress</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="topicPerformance">
+
+        </tbody>
+
+    </table>
+
+</section>
+
+    <!-- HISTORY -->
+
+    <section class="history">
+
+        <h2>
+
+            📜 Quiz History
+
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Date</th>
+
+                    <th>Category</th>
+
+                    <th>Score</th>
+
+                    <th>Percentage</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="historyTable">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- EXPORT -->
+
+    <section class="buttons">
+
+        <button id="printBtn">
+
+            🖨 Print
+
+        </button>
+
+        <button id="pdfBtn">
+
+            📄 Download PDF
+
+        </button>
+
+        <button id="csvBtn">
+
+            📊 Export CSV
+
+        </button>
+
+    </section>
+
+</div>
+<script src="js/toast.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="js/storage.js"></script>
+
+<script src="js/reports.js"></script>
+
+</body>
+
+</html>

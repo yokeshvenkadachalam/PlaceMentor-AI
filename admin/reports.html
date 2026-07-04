@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        Performance Reports | PlaceMentor AI
+
+    </title>
+
+    <!-- ==========================================
+                    GOOGLE FONT
+    =========================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ==========================================
+                    FONT AWESOME
+    =========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- ==========================================
+                    CSS
+    =========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="./css/reports.css">
+
+    <link
+        rel="stylesheet"
+        href="./css/toast.css">
+
+</head>
+
+<body data-page="reports">
+
+<div class="reports-page">
+
+    <!-- ==========================================
+                    PAGE HEADER
+    =========================================== -->
+
+    <header class="page-header">
+
+        <div class="header-left">
+
+            <div class="page-icon">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+            </div>
+
+            <div>
+
+                <h1>
+
+                    Performance Reports
+
+                </h1>
+
+                <p>
+
+                    Analyze quiz attempts,
+                    student performance,
+                    pass percentage,
+                    exports and analytics.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="header-right">
+
+            <a
+    href="#"
+    class="dashboard-link">
+
+    <i class="fa-solid fa-house"></i>
+
+    Dashboard
+
+</a>
+
+        </div>
+
+    </header>
+
+    <!-- ==========================================
+                    FILTERS
+    =========================================== -->
+
+    <section class="filter-card">
+
+        <div class="filter-title">
+
+            <i class="fa-solid fa-filter"></i>
+
+            <span>
+
+                Report Filters
+
+            </span>
+
+        </div>
+
+        <div class="filter-grid">
+
+            <!-- From -->
+
+            <div class="form-group">
+
+                <label for="fromDate">
+
+                    <i class="fa-regular fa-calendar"></i>
+
+                    From Date
+
+                </label>
+
+                <input
+                    type="date"
+                    id="fromDate">
+
+            </div>
+
+            <!-- To -->
+
+            <div class="form-group">
+
+                <label for="toDate">
+
+                    <i class="fa-regular fa-calendar-check"></i>
+
+                    To Date
+
+                </label>
+
+                <input
+                    type="date"
+                    id="toDate">
+
+            </div>
+
+            <!-- Student -->
+
+            <div class="form-group">
+
+                <label for="studentSearch">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    Student
+
+                </label>
+
+                <input
+                    type="text"
+                    id="studentSearch"
+                    placeholder="Student Name / Student ID">
+
+            </div>
+
+            <!-- Status -->
+
+            <div class="form-group">
+
+                <label for="statusFilter">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Status
+
+                </label>
+
+                <select id="statusFilter">
+
+                    <option value="">
+
+                        All
+
+                    </option>
+
+                    <option value="Passed">
+
+                        Passed
+
+                    </option>
+
+                    <option value="Failed">
+
+                        Failed
+
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- Report Type -->
+
+            <div class="form-group">
+
+                <label for="reportType">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    Report Type
+
+                </label>
+
+                <select id="reportType">
+
+                    <option value="attempt">
+
+                        Quiz Attempt Report
+
+                    </option>
+
+                    <option value="summary">
+
+                        Student Performance Summary
+
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- ==========================================
+                        BUTTONS
+        =========================================== -->
+
+        <div class="button-group">
+
+            <button
+                id="generateReport"
+                class="btn-primary">
+
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+
+                Generate Report
+
+            </button>
+
+            <button
+                id="resetFilters"
+                class="btn-secondary">
+
+                <i class="fa-solid fa-rotate-right"></i>
+
+                Reset
+
+            </button>
+
+            <button
+                id="downloadPdf"
+                class="btn-danger">
+
+                <i class="fa-solid fa-file-pdf"></i>
+
+                Download PDF
+
+            </button>
+
+            <button
+                id="downloadExcel"
+                class="btn-success">
+
+                <i class="fa-solid fa-file-excel"></i>
+
+                Export Excel
+
+            </button>
+
+        </div>
+
+    </section>
+
+        <!-- ==========================================
+                    ANALYTICS DASHBOARD
+    =========================================== -->
+
+    <section class="analytics-section">
+
+        <div class="section-title">
+
+            <i class="fa-solid fa-chart-simple"></i>
+
+            <h2>
+
+                Analytics Overview
+
+            </h2>
+
+        </div>
+
+        <div class="summary-grid">
+
+            <!-- Total Students -->
+
+            <div class="summary-card blue">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </div>
+
+                <div class="card-content">
+
+                    <span>Total Students</span>
+
+                    <h2 id="totalStudents">0</h2>
+
+                </div>
+
+            </div>
+
+            <!-- Attempted -->
+
+            <div class="summary-card green">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-user-check"></i>
+
+                </div>
+
+                <div class="card-content">
+
+                    <span>Attempted</span>
+
+                    <h2 id="attemptedStudents">0</h2>
+
+                </div>
+
+            </div>
+
+            <!-- Not Attempted -->
+
+            <div class="summary-card red">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-user-xmark"></i>
+
+                </div>
+
+                <div class="card-content">
+
+                    <span>Not Attempted</span>
+
+                    <h2 id="notAttemptedStudents">0</h2>
+
+                </div>
+
+            </div>
+
+            <!-- Attempts -->
+
+            <div class="summary-card purple">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-list-check"></i>
+
+                </div>
+
+                <div class="card-content">
+
+                    <span>Total Attempts</span>
+
+                    <h2 id="totalAttempts">0</h2>
+
+                </div>
+
+            </div>
+
+            <!-- Average -->
+
+            <div class="summary-card orange">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                </div>
+
+                <div class="card-content">
+
+                    <span>Average %</span>
+
+                    <h2 id="averagePercentage">0%</h2>
+
+                </div>
+
+            </div>
+
+            <!-- Highest -->
+
+            <div class="summary-card gold">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                </div>
+
+                <div class="card-content">
+
+                    <span>Highest %</span>
+
+                    <h2 id="highestPercentage">0%</h2>
+
+                </div>
+
+            </div>
+
+            <!-- Lowest -->
+
+            <div class="summary-card gray">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                </div>
+
+                <div class="card-content">
+
+                    <span>Lowest %</span>
+
+                    <h2 id="lowestPercentage">0%</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+                    CHARTS
+    =========================================== -->
+
+    <section class="charts-section">
+
+        <div class="section-title">
+
+            <i class="fa-solid fa-chart-pie"></i>
+
+            <h2>
+
+                Performance Analytics
+
+            </h2>
+
+        </div>
+
+        <div class="chart-grid">
+
+            <!-- Attempts -->
+
+            <div class="chart-card">
+
+                <h3>
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    Attempts Per Day
+
+                </h3>
+
+                <canvas id="attemptChart"></canvas>
+
+            </div>
+
+            <!-- Pass / Fail -->
+
+            <div class="chart-card">
+
+                <h3>
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    Pass / Fail Distribution
+
+                </h3>
+
+                <canvas id="statusChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </section>
+
+        <!-- ==========================================
+                    REPORT TABLE
+    =========================================== -->
+
+    <section class="table-section">
+
+        <div class="table-header">
+
+            <div>
+
+                <h2>
+
+                    <i class="fa-solid fa-table"></i>
+
+                    Student Performance Reports
+
+                </h2>
+
+                <p>
+
+                    View, search and export quiz reports.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead id="reportTableHead">
+
+                    <tr>
+
+                        <th>Student ID</th>
+
+                        <th>Name</th>
+
+                        <th>Email</th>
+
+                        <th>Category</th>
+
+                        <th>Topic</th>
+
+                        <th>Score</th>
+
+                        <th>Total</th>
+
+                        <th>Percentage</th>
+
+                        <th>Status</th>
+
+                        <th>Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="reportTableBody">
+
+                    <tr>
+
+                        <td colspan="10" class="empty-row">
+
+                            <div class="empty-state">
+
+                                <i class="fa-solid fa-chart-column"></i>
+
+                                <h3>
+
+                                    No Reports Found
+
+                                </h3>
+
+                                <p>
+
+                                    Select a date range and click
+                                    <strong>Generate Report</strong>
+
+                                </p>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+                    PAGE FOOTER
+    =========================================== -->
+
+    <footer class="reports-footer">
+
+        <div class="footer-left">
+
+            © 2026 PlaceMentor AI
+
+        </div>
+
+        <div class="footer-right">
+
+            Admin Analytics Dashboard
+
+        </div>
+
+    </footer>
+
+</div>
+
+<!-- ==========================================
+                LIBRARIES
+========================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<!-- ==========================================
+                JAVASCRIPT
+========================================== -->
+
+<script src="../js/storage.js"></script>
+<script src="../js/toast.js"></script>
+
+<script src="./js/api.js"></script>
+
+<script src="../js/constants.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/layout.js"></script>
+
+<script src="./js/auth.js"></script>
+<script src="./js/reports.js"></script>
+
+</body>
+
+</html>

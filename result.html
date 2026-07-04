@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Quiz Result | PlaceMentor AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="css/result.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="css/darkmode.css">
+
+</head>
+
+<body>
+
+<div class="result-container">
+
+    <h1>
+
+        🎉 Quiz Completed
+
+    </h1>
+
+    <p>
+
+        Here's your performance report
+
+    </p>
+
+    <!-- Summary -->
+
+    <div class="summary">
+
+        <div class="card">
+
+            <h2 id="percentage">
+
+                0%
+
+            </h2>
+
+            <p>
+
+                Percentage
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2 id="correct">
+
+                0
+
+            </h2>
+
+            <p>
+
+                Correct
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2 id="wrong">
+
+                0
+
+            </h2>
+
+            <p>
+
+                Wrong
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2 id="skipped">
+
+                0
+
+            </h2>
+
+            <p>
+
+                Skipped
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Chart -->
+
+    <div class="chart-box">
+
+        <canvas id="resultChart">
+
+        </canvas>
+
+    </div>
+
+    <!-- Review -->
+
+    <div class="review">
+
+        <h2>
+
+            Answer Review
+
+        </h2>
+
+        <div id="reviewList">
+
+        </div>
+
+    </div>
+
+    <!-- Buttons -->
+
+    <div class="buttons">
+
+        <button
+        id="retakeBtn">
+
+            🔄 Retake Quiz
+
+        </button>
+
+        <button
+        id="dashboardBtn">
+
+            🏠 Dashboard
+
+        </button>
+
+    </div>
+
+</div>
+<script src="js/api.js"></script>
+<script src="js/result.js"></script>
+
+</body>
+
+</html>

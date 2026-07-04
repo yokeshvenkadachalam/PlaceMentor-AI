@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Category Management | PlaceMentor AI</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="css/categories.css">
+
+    <link rel="stylesheet"
+          href="../css/darkmode.css">
+
+    <link rel="stylesheet"
+          href="../css/toast.css">
+
+</head>
+
+<body data-page="categories">
+
+<div class="page">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="topbar">
+
+        <h1>
+
+            📂 Category Management
+
+        </h1>
+
+        <div class="top-actions">
+
+            <input
+                    type="text"
+                    id="searchCategory"
+                    placeholder="Search Category...">
+
+            <select id="statusFilter">
+
+                <option value="All">
+
+                    All Status
+
+                </option>
+
+                <option value="Active">
+
+                    Active
+
+                </option>
+
+                <option value="Inactive">
+
+                    Inactive
+
+                </option>
+
+            </select>
+
+            <button id="addCategoryBtn">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Category
+
+            </button>
+
+            <button
+                    id="dashboardBtn"
+
+class="dashboard-link">
+
+                Dashboard
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= SUMMARY ================= -->
+
+    <div class="summary-grid">
+
+        <div class="summary-card">
+
+            <h3>Total Categories</h3>
+
+            <h1 id="totalCategories">
+
+                0
+
+            </h1>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Active Categories</h3>
+
+            <h1 id="activeCategories">
+
+                0
+
+            </h1>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Inactive Categories</h3>
+
+            <h1 id="inactiveCategories">
+
+                0
+
+            </h1>
+
+        </div>
+
+    </div>
+
+    <!-- ================= TABLE ================= -->
+
+    <div class="table-card">
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>Category</th>
+
+                <th>Description</th>
+
+                <th>Status</th>
+
+                <th>Topics</th>
+
+                <th>Questions</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody id="categoryTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- ================= CATEGORY MODAL ================= -->
+
+    <div
+            id="categoryModal"
+            class="modal">
+
+        <div class="modal-content">
+
+            <h2 id="modalTitle">
+
+                ➕ Add Category
+
+            </h2>
+
+            
+
+            <input
+                    type="text"
+                    id="categoryName"
+                    placeholder="Category Name">
+
+            <textarea
+                    id="categoryDescription"
+                    placeholder="Category Description"></textarea>
+
+            <select id="categoryStatus">
+
+                <option value="true">
+
+                    Active
+
+                </option>
+
+                <option value="false">
+
+                    Inactive
+
+                </option>
+
+            </select>
+
+            <div class="modal-buttons">
+
+                <button id="saveCategoryBtn">
+
+                    💾 Save Category
+
+                </button>
+
+                <button id="closeCategoryModal">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../js/storage.js"></script>
+<script src="../js/toast.js"></script>
+
+<script src="js/api.js"></script>
+
+<script src="../js/constants.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/layout.js"></script>
+
+<script src="js/auth.js"></script>
+<script src="js/categories.js"></script>
+</body>
+
+</html>

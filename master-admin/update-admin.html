@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Update Admin | PlaceMentor AI
+
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link
+rel="stylesheet"
+href="css/admin-form.css">
+
+<link
+rel="stylesheet"
+href="../css/toast.css">
+
+<link
+rel="stylesheet"
+href="../css/darkmode.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- ==========================================
+                SIDEBAR
+========================================== -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<img
+src="../images/logo.png"
+class="logo-img"
+alt="Logo">
+
+<h2>
+
+Master Admin
+
+</h2>
+
+</div>
+
+<ul>
+
+<li>
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+</li>
+
+<li>
+
+<a href="../admin/students.html">
+
+<i class="fa-solid fa-user-graduate"></i>
+
+Students
+
+</a>
+
+</li>
+
+<li>
+
+<a href="../admin/questions.html">
+
+<i class="fa-solid fa-circle-question"></i>
+
+Questions
+
+</a>
+
+</li>
+
+<li>
+
+<a href="../admin/categories.html">
+
+<i class="fa-solid fa-folder-open"></i>
+
+Categories
+
+</a>
+
+</li>
+
+<li>
+
+<a href="../admin/topics.html">
+
+<i class="fa-solid fa-book-open"></i>
+
+Topics
+
+</a>
+
+</li>
+
+<li>
+
+<a href="../admin/reports.html">
+
+<i class="fa-solid fa-chart-column"></i>
+
+Reports
+
+</a>
+
+</li>
+
+<li class="active">
+
+<a href="admin-management.html">
+
+<i class="fa-solid fa-user-shield"></i>
+
+Admin Management
+
+</a>
+
+</li>
+
+<li>
+
+<a href="../admin/admin-settings.html">
+
+<i class="fa-solid fa-gear"></i>
+
+Settings
+
+</a>
+
+</li>
+
+<li onclick="logoutMasterAdmin()">
+
+<a href="javascript:void(0)">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+</li>
+
+</ul>
+
+</aside>
+
+<!-- ==========================================
+                MAIN
+========================================== -->
+
+<main class="main">
+
+<div class="topbar">
+
+<div>
+
+<h1>
+
+<i class="fa-solid fa-user-pen"></i>
+
+Update Admin
+
+</h1>
+
+<p>
+
+Update administrator information.
+
+</p>
+
+</div>
+
+</div>
+<!-- ==========================================
+                UPDATE ADMIN FORM
+========================================== -->
+
+<div class="form-card">
+
+<form id="updateAdminForm">
+
+<div class="form-grid">
+
+<!-- ================= USER ID ================= -->
+
+<div class="form-group">
+
+<label>
+
+User ID
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-id-card"></i>
+
+<input
+type="text"
+id="userId"
+readonly>
+
+</div>
+
+</div>
+
+<!-- ================= ROLE ================= -->
+
+<div class="form-group">
+
+<label>
+
+Role
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-user-shield"></i>
+
+<input
+type="text"
+id="role"
+readonly>
+
+</div>
+
+</div>
+
+<!-- ================= FULL NAME ================= -->
+
+<div class="form-group">
+
+<label>
+
+Full Name
+
+<span class="required">*</span>
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-user"></i>
+
+<input
+type="text"
+id="fullName"
+placeholder="Enter Full Name"
+required>
+
+</div>
+
+</div>
+
+<!-- ================= EMAIL ================= -->
+
+<div class="form-group">
+
+<label>
+
+Email Address
+
+<span class="required">*</span>
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-envelope"></i>
+
+<input
+type="email"
+id="email"
+placeholder="Enter Email Address"
+required>
+
+</div>
+
+</div>
+
+<!-- ================= STATUS ================= -->
+
+<div class="form-group">
+
+<label>
+
+Status
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-toggle-on"></i>
+
+<select id="active">
+
+<option value="true">
+
+Active
+
+</option>
+
+<option value="false">
+
+Inactive
+
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<!-- ================= MASTER ADMIN ================= -->
+
+<div class="form-group">
+
+<label>
+
+Admin Type
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-crown"></i>
+
+<input
+type="text"
+id="adminType"
+readonly>
+
+</div>
+
+</div>
+
+</div>
+<!-- ==========================================
+                FORM ACTIONS
+========================================== -->
+
+<div class="form-actions">
+
+<button
+
+type="submit"
+
+class="btn-primary">
+
+<i class="fa-solid fa-floppy-disk"></i>
+
+Update Admin
+
+</button>
+
+<button
+
+type="reset"
+
+class="btn-secondary">
+
+<i class="fa-solid fa-rotate-left"></i>
+
+Reset
+
+</button>
+
+<button
+type="button"
+class="btn-secondary"
+onclick="reloadAdmin()">
+
+<i class="fa-solid fa-arrows-rotate"></i>
+
+Reload
+
+</button>
+
+<button
+
+type="button"
+
+class="btn-secondary"
+
+onclick="window.location.href='admin-management.html'">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Back
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+<!-- ==========================================
+                FOOTER
+========================================== -->
+
+<footer>
+
+<p>
+
+© 2026 PlaceMentor AI • Master Admin Portal • Developed by Yokesh V
+
+</p>
+
+</footer>
+
+</main>
+
+</div>
+
+<!-- ==========================================
+                COMMON JAVASCRIPT
+========================================== -->
+
+<script src="../js/storage.js"></script>
+
+<script src="../js/toast.js"></script>
+
+<script src="../js/api.js"></script>
+
+<!-- ==========================================
+                MASTER ADMIN JAVASCRIPT
+========================================== -->
+
+<script src="js/auth.js"></script>
+
+<script src="js/update-admin.js"></script>
+
+</body>
+
+</html>

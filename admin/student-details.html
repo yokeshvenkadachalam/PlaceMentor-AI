@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Student Details | PlaceMentor AI</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link
+rel="stylesheet"
+href="css/student-details.css">
+
+<link
+rel="stylesheet"
+href="../css/toast.css">
+
+<link
+rel="stylesheet"
+href="../css/darkmode.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="header">
+
+        <button
+        class="back-btn"
+        onclick="history.back()">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back
+
+        </button>
+
+        <h1>
+
+            👨‍🎓 Student Details
+
+        </h1>
+
+    </div>
+
+    <!-- ================= PROFILE ================= -->
+
+    <div class="profile-card">
+
+        <div class="profile-left">
+
+            <img
+            id="profileImage"
+            src="../images/default-profile.png"
+            alt="Profile">
+
+        </div>
+
+        <div class="profile-right">
+
+            <h2 id="studentName">
+
+                Loading...
+
+            </h2>
+
+            <p>
+
+                <strong>ID :</strong>
+
+                <span id="studentId"></span>
+
+            </p>
+
+            <p>
+
+                <strong>Email :</strong>
+
+                <span id="studentEmail"></span>
+
+            </p>
+
+            <p>
+
+                <strong>Mobile :</strong>
+
+                <span id="studentMobile"></span>
+
+            </p>
+
+            <p>
+
+                <strong>College :</strong>
+
+                <span id="studentCollege"></span>
+
+            </p>
+
+            <p>
+
+                <strong>Department :</strong>
+
+                <span id="studentDepartment"></span>
+
+            </p>
+
+            <p>
+
+                <strong>Year :</strong>
+
+                <span id="studentYear"></span>
+
+            </p>
+
+            <p>
+
+                <strong>Status :</strong>
+
+                <span id="studentStatus"></span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ================= STATS ================= -->
+
+    <div class="stats">
+
+        <div class="card">
+
+            <h3>Total Attempts</h3>
+
+            <h2 id="totalAttempts">0</h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Average Score</h3>
+
+            <h2 id="averageScore">0%</h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Highest Score</h3>
+
+            <h2 id="highestScore">0%</h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Accuracy</h3>
+
+            <h2 id="accuracy">0%</h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>XP</h3>
+
+            <h2 id="xp">0</h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Badge</h3>
+
+            <h2 id="badge">-</h2>
+
+        </div>
+
+    </div>
+
+    <!-- ================= QUIZ HISTORY ================= -->
+
+    <div class="history-card">
+
+        <h2>
+
+            📝 Recent Quiz History
+
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Topic</th>
+
+                    <th>Category</th>
+
+                    <th>Difficulty</th>
+
+                    <th>Score</th>
+
+                    <th>Date</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="quizHistoryTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="../js/toast.js"></script>
+<script src="../js/storage.js"></script>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/student-details.js"></script>
+
+</body>
+
+</html>

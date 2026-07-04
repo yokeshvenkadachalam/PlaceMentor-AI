@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Leaderboard | PlaceMentor AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="css/leaderboard.css">
+
+    <link rel="stylesheet"
+        href="css/toast.css">
+
+    <link rel="stylesheet"
+        href="css/darkmode.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="page-header">
+
+            <h1>🏆 Leaderboard</h1>
+
+            <p>Top Performing Students</p>
+
+        </header>
+
+        <!-- ================= STATISTICS ================= -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <h2 id="totalStudents">0</h2>
+
+                <p>Total Students</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2 id="highestXP">0</h2>
+
+                <p>Highest XP</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2 id="yourRank">--</h2>
+
+                <p>Your Rank</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2 id="yourBadge">--</h2>
+
+                <p>Your Badge</p>
+
+            </div>
+
+        </section>
+
+        <!-- ================= TOP 3 PODIUM ================= -->
+
+        <section class="podium">
+
+            <div class="podium-card second"
+                id="secondPlace">
+
+            </div>
+
+            <div class="podium-card first"
+                id="firstPlace">
+
+            </div>
+
+            <div class="podium-card third"
+                id="thirdPlace">
+
+            </div>
+
+        </section>
+
+        <!-- ================= SEARCH ================= -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchStudent"
+                placeholder="🔍 Search Student...">
+
+        </div>
+
+        <!-- ================= LEADERBOARD TABLE ================= -->
+
+        <section class="table-section">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Rank</th>
+
+                        <th>Student</th>
+
+                        <th>XP</th>
+
+                        <th>Badge</th>
+
+                        <th>Average</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="leaderboardTable">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- ================= FOOTER BUTTON ================= -->
+
+        <div class="button-area">
+
+            <button
+                onclick="window.location.href='dashboard.html'">
+
+                ← Back to Dashboard
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="js/toast.js"></script>
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/leaderboard.js"></script>
+
+</body>
+
+</html>

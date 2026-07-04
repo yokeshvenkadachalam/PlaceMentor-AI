@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz History | PlaceMentor AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/history.css">
+    <link rel="stylesheet" href="css/darkmode.css">
+
+</head>
+
+<body>
+
+<div class="history-container">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="history-header">
+
+        <div>
+
+            <h1>
+                📚 Quiz History
+            </h1>
+
+            <p>
+                View all your previous quiz attempts.
+            </p>
+
+        </div>
+
+        <button
+                class="dashboard-btn"
+                onclick="window.location.href='dashboard.html'">
+
+            <i class="fa-solid fa-house"></i>
+
+            Dashboard
+
+        </button>
+
+    </header>
+
+    <!-- ================= SUMMARY ================= -->
+
+    <section class="summary">
+
+        <div class="summary-card">
+
+            <h2 id="totalAttempts">
+
+                0
+
+            </h2>
+
+            <p>Total Attempts</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h2 id="passedCount">
+
+                0
+
+            </h2>
+
+            <p>Passed</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h2 id="averagePercentage">
+
+                0%
+
+            </h2>
+
+            <p>Average Score</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h2 id="highestPercentage">
+
+                0%
+
+            </h2>
+
+            <p>Highest Score</p>
+
+        </div>
+
+    </section>
+    <!-- ================= FILTERS ================= -->
+
+<section class="filters">
+
+    <select id="categoryFilter">
+        <option value="">All Categories</option>
+    </select>
+
+    <select id="topicFilter">
+        <option value="">All Topics</option>
+    </select>
+
+    <select id="difficultyFilter">
+        <option value="">All Difficulty</option>
+
+        <option value="EASY">
+            Easy
+        </option>
+
+        <option value="MEDIUM">
+            Medium
+        </option>
+
+        <option value="HARD">
+            Hard
+        </option>
+
+    </select>
+
+    <input
+        type="date"
+        id="fromDate">
+
+    <input
+        type="date"
+        id="toDate">
+
+    <button id="filterBtn">
+
+        Filter
+
+    </button>
+
+    <button id="resetBtn">
+
+        Reset
+
+    </button>
+
+</section>
+
+    <!-- ================= HISTORY TABLE ================= -->
+
+    <section class="table-section">
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>#</th>
+
+                <th>Category</th>
+
+                <th>Topic</th>
+
+                <th>Difficulty</th>
+
+                <th>Score</th>
+
+                <th>Percentage</th>
+
+                <th>Time</th>
+
+                <th>Status</th>
+
+                <th>Date</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody id="historyTable">
+
+            <tr>
+
+                <td colspan="9">
+
+                    Loading quiz history...
+
+                </td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ================= EMPTY STATE ================= -->
+
+    <div
+            id="emptyState"
+            class="empty-state"
+            style="display:none;">
+
+        <i class="fa-solid fa-book-open"></i>
+
+        <h2>
+
+            No Quiz History
+
+        </h2>
+
+        <p>
+
+            Complete your first quiz to see your history.
+
+        </p>
+
+        <button
+                onclick="window.location.href='quiz-setup.html'">
+
+            Start Quiz
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/history.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,312 @@
+/* ==========================================
+   PlaceMentor AI
+   Settings Page
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    min-height:100vh;
+
+    background:linear-gradient(135deg,#2563EB,#14B8A6);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.settings-container{
+
+    width:100%;
+
+    max-width:900px;
+
+}
+
+.settings-container h1{
+
+    text-align:center;
+
+    color:white;
+
+    margin-bottom:30px;
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+.settings-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+
+.settings-card h2{
+
+    color:#1E293B;
+
+    margin-bottom:20px;
+
+}
+
+.setting-item{
+
+    margin-bottom:20px;
+
+}
+
+.setting-item label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#64748B;
+
+    font-weight:600;
+
+}
+
+.setting-item input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.setting-item input:focus{
+
+    border-color:#2563EB;
+
+}
+
+.setting-item input[readonly]{
+
+    background:#F1F5F9;
+
+    cursor:not-allowed;
+
+}
+
+/* ==========================================
+   SWITCH
+========================================== */
+
+.switch{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:60px;
+
+    height:32px;
+
+    margin-right:15px;
+
+}
+
+.switch input{
+
+    display:none;
+
+}
+
+.slider{
+
+    position:absolute;
+
+    cursor:pointer;
+
+    inset:0;
+
+    background:#CBD5E1;
+
+    transition:.3s;
+
+    border-radius:40px;
+
+}
+
+.slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:24px;
+
+    height:24px;
+
+    left:4px;
+
+    top:4px;
+
+    background:white;
+
+    border-radius:50%;
+
+    transition:.3s;
+
+}
+
+.switch input:checked + .slider{
+
+    background:#2563EB;
+
+}
+
+.switch input:checked + .slider::before{
+
+    transform:translateX(28px);
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.settings-card button{
+
+    padding:14px 24px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563EB;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.settings-card button:hover{
+
+    transform:translateY(-2px);
+
+    background:#1D4ED8;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.buttons button{
+
+    flex:1;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.buttons button:first-child{
+
+    background:#14B8A6;
+
+    color:white;
+
+}
+
+.buttons button:last-child{
+
+    background:#0F172A;
+
+    color:white;
+
+}
+
+.buttons button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+    .buttons{
+
+        flex-direction:column;
+
+    }
+
+    .settings-card{
+
+        padding:22px;
+
+    }
+
+    .settings-container h1{
+
+        font-size:28px;
+
+    }
+
+}

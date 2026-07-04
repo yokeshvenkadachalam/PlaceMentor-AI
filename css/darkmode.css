@@ -1,0 +1,116 @@
+/* ==========================================
+   PlaceMentor AI
+   Global Dark Mode
+========================================== */
+
+/* ===== BODY ===== */
+
+body.dark-mode{
+
+    background:#0F172A;
+
+    color:#F8FAFC;
+
+}
+
+/* ===== CARDS ===== */
+
+body.dark-mode .card,
+body.dark-mode .profile-card,
+body.dark-mode .settings-card,
+body.dark-mode .report-card,
+body.dark-mode .leaderboard-card,
+body.dark-mode .chart-box,
+body.dark-mode .history,
+body.dark-mode .notifications,
+body.dark-mode .goal-box,
+body.dark-mode .topic-box,
+body.dark-mode .achievement-card,
+body.dark-mode .insight-card{
+
+    background:#1E293B;
+
+    color:white;
+
+}
+
+/* ===== SIDEBAR ===== */
+
+body.dark-mode .sidebar{
+
+    background:#111827;
+
+}
+
+body.dark-mode .sidebar a{
+
+    color:white;
+
+}
+
+/* ===== TOPBAR ===== */
+
+body.dark-mode .topbar{
+
+    color:white;
+
+}
+
+/* ===== INPUTS ===== */
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select{
+
+    background:#334155;
+
+    color:white;
+
+    border:1px solid #475569;
+
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder{
+
+    color:#CBD5E1;
+
+}
+
+/* ===== TABLE ===== */
+
+body.dark-mode table{
+
+    color:white;
+
+}
+
+body.dark-mode th{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+body.dark-mode td{
+
+    border-color:#334155;
+
+}
+
+/* ===== BUTTON ===== */
+
+body.dark-mode button{
+
+    transition:.3s;
+
+}
+
+/* ===== LINKS ===== */
+
+body.dark-mode a{
+
+    color:#60A5FA;
+
+}

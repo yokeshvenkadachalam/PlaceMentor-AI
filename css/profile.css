@@ -1,0 +1,1291 @@
+/* ==========================================
+   PlaceMentor AI
+   Profile Page
+   Part 1
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+
+    --secondary:#6366f1;
+
+    --success:#16a34a;
+
+    --danger:#dc2626;
+
+    --warning:#f59e0b;
+
+    --white:#ffffff;
+
+    --background:#f5f7fb;
+
+    --card:#ffffff;
+
+    --border:#e5e7eb;
+
+    --text:#1f2937;
+
+    --text-light:#6b7280;
+
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+
+    --radius:18px;
+
+}
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    padding:40px;
+
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.profile-container{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+/* ==========================================
+   PROFILE CARD
+========================================== */
+
+.profile-card{
+
+    background:var(--card);
+
+    border-radius:25px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.profile-header{
+
+    background:linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+    );
+
+    color:#fff;
+
+    padding:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+
+}
+
+/* ==========================================
+   PROFILE IMAGE
+========================================== */
+
+.profile-image-wrapper{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.profile-image-wrapper img{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    border:6px solid rgba(255,255,255,.25);
+
+    object-fit:cover;
+
+    background:#fff;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.photo-btn{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    background:#fff;
+
+    color:var(--primary);
+
+    font-size:15px;
+
+    font-weight:600;
+
+    padding:12px 22px;
+
+    border-radius:40px;
+
+    transition:.3s;
+
+}
+
+.photo-btn:hover{
+
+    transform:translateY(-3px);
+
+    background:#eef4ff;
+
+}
+
+/* ==========================================
+   PROFILE SUMMARY
+========================================== */
+
+.profile-summary{
+
+    flex:1;
+
+}
+
+.profile-summary h1{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+}
+
+.profile-summary p{
+
+    font-size:18px;
+
+    opacity:.95;
+
+    margin-bottom:8px;
+
+}
+
+/* ==========================================
+   PROFILE COMPLETION
+========================================== */
+
+.completion-card{
+
+    margin:35px;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    background:#f9fbff;
+
+    border:1px solid var(--border);
+
+}
+
+.completion-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.completion-top h3{
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+#completionPercent{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+.completion-bar{
+
+    width:100%;
+
+    height:14px;
+
+    background:#dbeafe;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    margin-bottom:15px;
+
+}
+
+.completion-fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(
+            90deg,
+            #22c55e,
+            #3b82f6
+    );
+
+    transition:width .5s ease;
+
+}
+
+#completionMessage{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+    line-height:1.6;
+
+}
+/* ==========================================
+   FORM SECTIONS
+========================================== */
+
+.section-card{
+
+    background:#fff;
+
+    margin:35px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    border:1px solid var(--border);
+
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+    transition:.3s;
+
+}
+
+.section-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.section-card h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:28px;
+
+    color:var(--primary);
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.section-card h2 i{
+
+    font-size:26px;
+
+}
+
+/* ==========================================
+   GRID LAYOUT
+========================================== */
+
+.profile-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+}
+
+.full-width{
+
+    grid-column:1/-1;
+
+}
+
+/* ==========================================
+   INPUT GROUP
+========================================== */
+
+.input-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.input-group label{
+
+    margin-bottom:10px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.input-group input,
+
+.input-group textarea,
+
+.input-group select{
+
+    width:100%;
+
+    padding:14px 18px;
+
+    border:2px solid var(--border);
+
+    border-radius:14px;
+
+    outline:none;
+
+    font-size:15px;
+
+    font-family:"Poppins",sans-serif;
+
+    transition:.3s;
+
+    background:#fff;
+
+}
+
+.input-group textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.input-group input:focus,
+
+.input-group textarea:focus,
+
+.input-group select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+.input-group input[readonly]{
+
+    background:#f3f4f6;
+
+    color:#6b7280;
+
+    cursor:not-allowed;
+
+}
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.profile-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    margin:40px 35px;
+
+}
+
+.primary-btn,
+
+.secondary-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.primary-btn{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.primary-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-3px);
+
+}
+
+.secondary-btn{
+
+    background:#eef2ff;
+
+    color:var(--primary);
+
+}
+
+.secondary-btn:hover{
+
+    background:#dbeafe;
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================
+   SMALL BUTTON ICONS
+========================================== */
+
+.primary-btn i,
+
+.secondary-btn i{
+
+    font-size:16px;
+
+}
+
+/* ==========================================
+   HOVER ANIMATION
+========================================== */
+
+button{
+
+    transition:.3s ease;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+/* ==========================================
+   RESUME SECTION
+========================================== */
+
+.resume-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+    padding:25px;
+
+    border:2px dashed var(--border);
+
+    border-radius:18px;
+
+    background:#fafbff;
+
+}
+
+.resume-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.resume-icon{
+
+    font-size:55px;
+
+    color:#dc2626;
+
+}
+
+.resume-info h3{
+
+    font-size:20px;
+
+    margin-bottom:6px;
+
+    color:var(--text);
+
+}
+
+.resume-info p{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+
+.resume-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.resume-buttons button{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:13px 24px;
+
+    border-radius:12px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.resume-buttons button:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================
+   PROFILE STATISTICS
+========================================== */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.stat-card{
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.3s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+
+}
+
+.stat-card i{
+
+    font-size:38px;
+
+    color:var(--primary);
+
+    margin-bottom:18px;
+
+}
+
+.stat-card h3{
+
+    font-size:32px;
+
+    color:var(--primary);
+
+    margin-bottom:10px;
+
+}
+
+.stat-card p{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+
+/* ==========================================
+   ACHIEVEMENTS
+========================================== */
+
+.achievement-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.achievement-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    border:1px solid var(--border);
+
+    text-align:center;
+
+    transition:.3s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+}
+
+.achievement-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.achievement-card i{
+
+    font-size:45px;
+
+    color:#f59e0b;
+
+    margin-bottom:15px;
+
+}
+
+.achievement-card h3{
+
+    margin-bottom:8px;
+
+    font-size:20px;
+
+    color:var(--text);
+
+}
+
+.achievement-card p{
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+/* ==========================================
+   ACCOUNT INFORMATION
+========================================== */
+
+#role{
+
+    font-weight:600;
+
+    color:#2563eb;
+
+}
+
+#createdAt,
+
+#updatedAt{
+
+    color:#6b7280;
+
+}
+
+/* ==========================================
+   ICON COLORS
+========================================== */
+
+.fa-user{
+
+    color:#2563eb;
+
+}
+
+.fa-location-dot{
+
+    color:#ef4444;
+
+}
+
+.fa-graduation-cap{
+
+    color:#10b981;
+
+}
+
+.fa-briefcase{
+
+    color:#8b5cf6;
+
+}
+
+.fa-file-lines{
+
+    color:#dc2626;
+
+}
+
+.fa-chart-simple{
+
+    color:#0ea5e9;
+
+}
+
+.fa-medal{
+
+    color:#f59e0b;
+
+}
+
+.fa-circle-info{
+
+    color:#3b82f6;
+
+}
+/* ==========================================
+   RECENT ACTIVITY
+========================================== */
+
+.activity-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.activity-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+    padding:20px;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    background:#fff;
+
+    transition:.3s;
+
+}
+
+.activity-item:hover{
+
+    transform:translateX(6px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+
+}
+
+.activity-item i{
+
+    font-size:22px;
+
+    color:var(--primary);
+
+    margin-top:5px;
+
+}
+
+.activity-item h4{
+
+    margin-bottom:6px;
+
+    font-size:18px;
+
+    color:var(--text);
+
+}
+
+.activity-item p{
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+/* ==========================================
+   PROFILE CHECKLIST
+========================================== */
+
+.profile-checklist{
+
+    list-style:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.profile-checklist li{
+
+    padding:15px 18px;
+
+    background:#f8fafc;
+
+    border-left:5px solid var(--primary);
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    color:var(--text);
+
+}
+
+/* ==========================================
+   PROFILE STRENGTH
+========================================== */
+
+.strength-bar{
+
+    width:100%;
+
+    height:16px;
+
+    background:#e5e7eb;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    margin:20px 0;
+
+}
+
+.strength-fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #22c55e,
+        #3b82f6
+    );
+
+    transition:width .5s ease;
+
+}
+
+#strengthText{
+
+    font-size:15px;
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    body{
+
+        padding:20px;
+
+    }
+
+    .profile-header{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .profile-summary{
+
+        text-align:center;
+
+    }
+
+    .profile-summary h1{
+
+        font-size:32px;
+
+    }
+
+    .section-card{
+
+        margin:20px;
+
+        padding:22px;
+
+    }
+
+    .completion-card{
+
+        margin:20px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .profile-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .stats-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .achievement-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .resume-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .resume-buttons{
+
+        width:100%;
+
+        flex-direction:column;
+
+    }
+
+    .resume-buttons button{
+
+        width:100%;
+
+    }
+
+    .profile-actions{
+
+        flex-direction:column;
+
+    }
+
+    .primary-btn,
+
+    .secondary-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    body{
+
+        padding:10px;
+
+    }
+
+    .profile-header{
+
+        padding:25px;
+
+    }
+
+    .profile-image-wrapper img{
+
+        width:130px;
+
+        height:130px;
+
+    }
+
+    .profile-summary h1{
+
+        font-size:26px;
+
+    }
+
+    .section-card{
+
+        margin:15px;
+
+        padding:18px;
+
+    }
+
+    .completion-card{
+
+        margin:15px;
+
+    }
+
+}
+
+/* ==========================================
+   DARK MODE
+========================================== */
+
+body.dark-mode{
+
+    background:#111827;
+
+    color:#f9fafb;
+
+}
+
+body.dark-mode .profile-card,
+
+body.dark-mode .section-card,
+
+body.dark-mode .resume-card,
+
+body.dark-mode .stat-card,
+
+body.dark-mode .achievement-card,
+
+body.dark-mode .activity-item{
+
+    background:#1f2937;
+
+    color:#f9fafb;
+
+    border-color:#374151;
+
+}
+
+body.dark-mode input,
+
+body.dark-mode textarea,
+
+body.dark-mode select{
+
+    background:#111827;
+
+    color:#f9fafb;
+
+    border-color:#374151;
+
+}
+
+body.dark-mode input::placeholder,
+
+body.dark-mode textarea::placeholder{
+
+    color:#9ca3af;
+
+}
+
+body.dark-mode .completion-card{
+
+    background:#1f2937;
+
+}
+
+body.dark-mode .profile-checklist li{
+
+    background:#111827;
+
+    color:#f9fafb;
+
+}
+
+body.dark-mode #completionMessage,
+
+body.dark-mode #strengthText,
+
+body.dark-mode .resume-info p,
+
+body.dark-mode .activity-item p,
+
+body.dark-mode .stat-card p,
+
+body.dark-mode .achievement-card p{
+
+    color:#d1d5db;
+
+}
+
+/* ==========================================
+   SMOOTH ANIMATIONS
+========================================== */
+
+.section-card,
+
+.stat-card,
+
+.achievement-card,
+
+.activity-item,
+
+.resume-card,
+
+.profile-header{
+
+    animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}

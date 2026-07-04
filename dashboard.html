@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | PlaceMentor AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="css/dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/toast.css">
+    <link rel="stylesheet" href="css/darkmode.css">
+    
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+    <img
+        src="images/logo.png"
+        alt="PlaceMentor AI Logo"
+        class="logo-img">
+
+    <h2>PlaceMentor AI</h2>
+
+</div>
+
+<ul>
+
+    <li class="active">
+        <a href="dashboard.html">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="quiz-setup.html">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Quiz</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="reports.html">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Reports</span>
+        </a>
+    </li>
+    <li>
+        <a href="history.html" class="menu-item">
+    <i class="fas fa-history"></i>
+    <span>History</span>
+</a>
+    </li>
+
+    <li>
+        <a href="leaderboard.html">
+            <i class="fa-solid fa-trophy"></i>
+            <span>Leaderboard</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="profile.html">
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </a>
+    </li>
+    <li onclick="logout()">
+        <a href="javascript:void(0)">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </a>
+    </li>
+
+</ul>
+
+</aside>
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+<!-- Topbar -->
+
+<div class="topbar">
+
+<h1>
+
+Welcome,
+
+<span id="studentName">
+
+Student
+
+</span>
+
+👋
+
+</h1>
+
+<p>
+
+Today is a great day to improve your placement skills 🚀
+
+</p>
+
+</div>
+
+<div class="cards">
+
+    <div class="card">
+        <i class="fa-solid fa-file-circle-check"></i>
+        <h2 id="tests">0</h2>
+        <p>Total Tests</p>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-trophy"></i>
+        <h2 id="highest">0%</h2>
+        <p>Highest Score</p>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-chart-column"></i>
+        <h2 id="average">0%</h2>
+        <p>Average Score</p>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-bullseye"></i>
+        <h2 id="accuracy">0%</h2>
+        <p>Accuracy</p>
+    </div>
+
+</div>
+<!-- Profile -->
+
+<div class="profile-card">
+
+<img
+
+id="profileImage"
+
+src="images/default-profile.png"
+
+alt="Student Profile">
+
+<div class="profile-info">
+
+<h2 id="profileName">
+
+Student Name
+
+</h2>
+
+<p id="studentId">
+
+Student ID
+
+</p>
+
+<p id="studentCollege">
+
+College
+
+</p>
+
+</div>
+
+</div>
+<!-- ==========================================
+     XP & LEVEL
+========================================== -->
+
+<div class="xp-level-container">
+
+    <div class="xp-card">
+
+        <h3>⭐ XP</h3>
+
+        <h2 id="xpValue">0 XP</h2>
+
+        <small id="remainingXP">
+            0 XP to next level
+        </small>
+
+        <div class="xp-progress">
+
+            <div
+                id="xpProgressBar"
+                class="xp-progress-fill">
+            </div>
+
+        </div>
+
+        <p id="xpPercent">
+
+            0%
+
+        </p>
+
+    </div>
+
+    <div class="level-card">
+
+        <h3>🏆 Level</h3>
+
+        <h1 id="levelValue">
+
+            Level 1
+
+        </h1>
+
+    </div>
+
+</div>
+<!-- ==========================================
+     DAILY CHALLENGES
+========================================== -->
+
+<div class="daily-challenges">
+
+    <h2>🎯 Daily Challenges</h2>
+
+    <p class="daily-subtitle">
+
+        Complete today's challenges to earn bonus XP.
+
+    </p>
+
+    <div
+        id="dailyChallengeGrid"
+        class="daily-challenge-grid">
+
+    </div>
+
+</div>
+<!-- ================= LEARNING INSIGHTS ================= -->
+
+<div class="insight-grid">
+
+    <div class="insight-card">
+
+        <h2>🔥 Daily Streak</h2>
+
+        <h1 id="dailyStreak">0 Days</h1>
+
+    </div>
+
+    <div class="insight-card">
+
+        <h2>🎯 Daily Goal</h2>
+
+        <div class="goal-progress">
+
+            <div id="goalFill" class="goal-fill"></div>
+
+        </div>
+
+        <p id="goalText">0 / 5 Quizzes</p>
+
+    </div>
+
+    <div class="insight-card">
+
+        <h2>💪 Performance</h2>
+
+        <p id="performanceMessage">
+
+            Keep practicing!
+
+        </p>
+
+    </div>
+
+    <div class="insight-card">
+
+        <h2>📚 Recommended Next Quiz</h2>
+
+        <h3 id="nextQuiz">
+
+            Percentage
+
+        </h3>
+
+    </div>
+
+</div>
+
+<!-- Chart -->
+
+<!-- ================= PERFORMANCE CHART ================= -->
+
+<div class="chart-box">
+
+    <h2>
+        📈 Performance Analytics
+    </h2>
+
+    <canvas id="performanceChart"></canvas>
+
+</div>
+
+<!-- Weekly Goal -->
+
+<div class="goal-box">
+
+<h2>
+
+Weekly Goal
+
+</h2>
+
+<p>
+
+Practice 50 Questions This Week
+
+</p>
+
+<div class="goal-progress">
+
+<div class="goal-fill"></div>
+
+</div>
+
+</div>
+
+<!-- ================= QUICK ACTIONS ================= -->
+
+<div class="quick-actions">
+
+<button onclick="window.location.href='quiz-setup.html'">
+
+▶ Start Quiz
+
+</button>
+
+<button onclick="window.location.href='leaderboard.html'">
+
+🏆 Leaderboard
+
+</button>
+
+<button onclick="window.location.href='reports.html'">
+
+📄 Reports
+
+</button>
+
+<button onclick="window.location.href='profile.html'">
+
+👤 Profile
+
+</button>
+
+</div>
+<!-- Strong Weak -->
+
+<div class="topic-grid">
+
+<div class="topic-box">
+
+<h3>
+
+💪 Strong Topics
+
+</h3>
+
+<ul>
+
+<li>Percentage</li>
+
+<li>Profit & Loss</li>
+
+<li>Java</li>
+
+</ul>
+
+</div>
+
+<div class="topic-box">
+
+<h3>
+
+🧠 Weak Topics
+
+</h3>
+
+<ul>
+
+<li>Probability</li>
+
+<li>Puzzles</li>
+
+<li>DBMS</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- ================= ACHIEVEMENTS ================= -->
+
+<div class="achievements">
+
+    <h2>🏆 Achievements</h2>
+
+    <p class="achievement-subtitle">
+        Unlock badges by completing quizzes and improving your performance.
+    </p>
+
+    <div class="achievement-grid" id="achievementGrid">
+
+        <!-- Achievements will be loaded dynamically by dashboard.js -->
+
+    </div>
+
+</div>
+
+<!-- Activity -->
+
+<!-- ================= RECENT QUIZ HISTORY ================= -->
+
+<div class="history">
+
+    <h2>📜 Recent Quiz History</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Date</th>
+
+                <th>Category</th>
+
+                <th>Score</th>
+
+                <th>Percentage</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="historyTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<div class="notifications">
+
+    <div class="notification-header">
+
+        <h2 id="notificationTitle">
+
+            🔔 Notifications (0)
+
+        </h2>
+
+        <button id="clearNotifications">
+
+            Clear All
+
+        </button>
+
+    </div>
+
+    <div id="notificationList">
+
+    </div>
+
+</div>
+<footer class="footer">
+
+<p>
+
+© 2026 PlaceMentor AI • Built by Yokesh V
+
+</p>
+
+</footer>
+</main>
+
+</div>
+<script src="js/toast.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

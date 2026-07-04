@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration | PlaceMentor AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="css/register.css">
+        <link rel="stylesheet" href="css/toast.css">
+        <link rel="stylesheet" href="css/darkmode.css">
+        
+
+</head>
+
+<body>
+
+    <div class="register-container">
+
+        <div class="left">
+
+            <h1>Create Account</h1>
+
+            <p>
+
+                Start your placement preparation journey with
+                PlaceMentor AI.
+
+            </p>
+
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700">
+
+        </div>
+
+        <div class="right">
+
+            <form id="registerForm">
+
+                <h2>Student Registration</h2>
+
+                <div class="input-box">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        required>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>College</label>
+
+                    <input
+                        type="text"
+                        id="college"
+                        required>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Department</label>
+
+                    <input
+                        type="text"
+                        id="department"
+                        required>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Academic Year</label>
+
+                    <select id="yearOfStudy">
+
+                        <option>1st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>Final Year</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        required>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Phone</label>
+
+                    <input
+                        type="text"
+                        id="phone"
+                        required>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        required>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        required>
+
+                </div>
+
+                <button type="submit">
+    Register
+</button>
+
+                <p>
+
+                    Already have an account?
+
+                    <a href="login.html">
+
+                        Login
+
+                    </a>
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+<script src="js/toast.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Topic Details | PlaceMentor AI</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="css/topic-details.css">
+
+    <link rel="stylesheet"
+          href="../css/toast.css">
+
+    <link rel="stylesheet"
+          href="../css/darkmode.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+
+    <div class="topbar">
+
+        <h1>
+
+            📘 Topic Details
+
+        </h1>
+
+        <button onclick="history.back()">
+
+            ← Back
+
+        </button>
+
+    </div>
+
+    <!-- Details Card -->
+
+    <div class="details-card">
+
+        <div class="row">
+
+            <span class="label">
+
+                Topic Name
+
+            </span>
+
+            <span id="topicName">
+
+                -
+
+            </span>
+
+        </div>
+
+        <div class="row">
+
+            <span class="label">
+
+                Category
+
+            </span>
+
+            <span id="topicCategory">
+
+                -
+
+            </span>
+
+        </div>
+
+        <div class="row">
+
+            <span class="label">
+
+                Status
+
+            </span>
+
+            <span id="topicStatus">
+
+                -
+
+            </span>
+
+        </div>
+
+        <div class="row">
+
+            <span class="label">
+
+                Total Questions
+
+            </span>
+
+            <span id="totalQuestions">
+
+                0
+
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../js/storage.js"></script>
+<script src="../js/toast.js"></script>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/topic-details.js"></script>
+
+</body>
+
+</html>

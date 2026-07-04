@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Admin Settings | PlaceMentor AI</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link
+rel="stylesheet"
+href="css/admin-settings.css">
+
+<link
+rel="stylesheet"
+href="../css/darkmode.css">
+
+<link
+rel="stylesheet"
+href="../css/toast.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ================= HEADER ================= -->
+
+<div class="topbar">
+
+<h1>
+
+⚙️ Admin Settings
+
+</h1>
+
+<button
+onclick="location.href='dashboard.html'">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Dashboard
+
+</button>
+
+</div>
+
+<!-- ================= PROFILE ================= -->
+
+<div class="card">
+
+<h2>
+
+👤 Admin Profile
+
+</h2>
+
+<div class="profile">
+
+<img
+src="../images/default-profile.png"
+id="adminPhoto"
+alt="Admin">
+
+<button id="changePhotoBtn">
+
+<i class="fa-solid fa-camera"></i>
+
+Change Photo
+
+</button>
+
+<input
+type="file"
+id="photoInput"
+accept="image/*"
+hidden>
+
+</div>
+
+<input
+type="text"
+id="adminName"
+placeholder="Admin Name">
+
+<input
+type="email"
+id="adminEmail"
+placeholder="Admin Email"
+readonly>
+
+</div>
+
+<!-- ================= SECURITY ================= -->
+
+<div class="card">
+
+<h2>
+
+🔒 Security
+
+</h2>
+
+<input
+type="password"
+id="newPassword"
+placeholder="New Password">
+
+<input
+type="password"
+id="confirmPassword"
+placeholder="Confirm Password">
+
+<button id="savePasswordBtn">
+
+💾 Save Password
+
+</button>
+
+</div>
+
+<!-- ================= APPEARANCE ================= -->
+
+<div class="card">
+
+<h2>
+
+🎨 Appearance
+
+</h2>
+
+<label>
+
+<input
+type="radio"
+name="theme"
+value="light"
+checked>
+
+Light Mode
+
+</label>
+
+<br><br>
+
+<label>
+
+<input
+type="radio"
+name="theme"
+value="dark">
+
+Dark Mode
+
+</label>
+
+</div>
+
+<!-- ================= NOTIFICATIONS ================= -->
+
+<div class="card">
+
+<h2>
+
+🔔 Notifications
+
+</h2>
+
+<label>
+
+<input
+type="checkbox"
+id="emailNotification"
+checked>
+
+Email Notifications
+
+</label>
+
+<br><br>
+
+<label>
+
+<input
+type="checkbox"
+id="pushNotification"
+checked>
+
+Push Notifications
+
+</label>
+
+<br><br>
+
+<label>
+
+<input
+type="checkbox"
+id="soundNotification"
+checked>
+
+Sound Notifications
+
+</label>
+
+</div>
+
+<!-- ================= DATA ================= -->
+
+<div class="card">
+
+<h2>
+
+💾 Data Management
+
+</h2>
+
+<button id="exportDataBtn">
+
+<i class="fa-solid fa-download"></i>
+
+Export JSON
+
+</button>
+
+<button id="importDataBtn">
+
+<i class="fa-solid fa-upload"></i>
+
+Import JSON
+
+</button>
+
+<input
+type="file"
+id="importFile"
+accept=".json"
+hidden>
+
+<button id="resetDataBtn">
+
+<i class="fa-solid fa-trash"></i>
+
+Reset Demo Data
+
+</button>
+
+</div>
+
+<!-- ================= ABOUT ================= -->
+
+<div class="card">
+
+<h2>
+
+ℹ️ About
+
+</h2>
+
+<table class="about-table">
+
+<tr>
+
+<td>
+
+Project
+
+</td>
+
+<td>
+
+PlaceMentor AI
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Version
+
+</td>
+
+<td>
+
+1.0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Developer
+
+</td>
+
+<td>
+
+Yokesh V
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+College
+
+</td>
+
+<td>
+
+Jai Shriram Engineering College
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Frontend
+
+</td>
+
+<td>
+
+HTML • CSS • JavaScript
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Backend
+
+</td>
+
+<td>
+
+FastAPI • MySQL (Upcoming)
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="../js/storage.js"></script>
+
+<script src="../js/toast.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/admin-settings.js"></script>
+
+</body>
+
+</html>

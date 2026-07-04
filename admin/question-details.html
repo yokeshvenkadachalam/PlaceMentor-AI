@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Question Details | PlaceMentor AI</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link
+rel="stylesheet"
+href="css/question-details.css">
+
+<link
+rel="stylesheet"
+href="../css/darkmode.css">
+
+<link
+rel="stylesheet"
+href="../css/toast.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="topbar">
+
+        <h1>
+
+            📖 Question Details
+
+        </h1>
+
+        <div>
+
+            <button
+            onclick="location.href='questions.html'">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= QUESTION CARD ================= -->
+
+    <div class="details-card">
+
+        <div class="detail-row">
+
+            <label>Question ID</label>
+
+            <span id="questionId">-</span>
+
+        </div>
+
+        <div class="detail-row">
+
+            <label>Category</label>
+
+            <span id="category">-</span>
+
+        </div>
+
+        <div class="detail-row">
+
+            <label>Topic</label>
+
+            <span id="topic">-</span>
+
+        </div>
+
+        <div class="detail-row">
+
+            <label>Difficulty</label>
+
+            <span id="difficulty">-</span>
+
+        </div>
+
+        <div class="detail-row">
+
+            <label>Marks</label>
+
+            <span id="marks">-</span>
+
+        </div>
+
+        <div class="detail-row">
+
+            <label>Status</label>
+
+            <span id="status">-</span>
+
+        </div>
+
+        <hr>
+
+        <div class="detail-block">
+
+            <h3>
+
+                Question
+
+            </h3>
+
+            <p id="questionText"></p>
+
+        </div>
+
+        <div class="detail-block">
+
+            <h3>
+
+                Options
+
+            </h3>
+
+            <ul class="options-list">
+
+                <li>
+
+                    <strong>A.</strong>
+
+                    <span id="optionA"></span>
+
+                </li>
+
+                <li>
+
+                    <strong>B.</strong>
+
+                    <span id="optionB"></span>
+
+                </li>
+
+                <li>
+
+                    <strong>C.</strong>
+
+                    <span id="optionC"></span>
+
+                </li>
+
+                <li>
+
+                    <strong>D.</strong>
+
+                    <span id="optionD"></span>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="detail-block">
+
+            <h3>
+
+                Correct Answer
+
+            </h3>
+
+            <p id="correctAnswer"></p>
+
+        </div>
+
+        <div class="detail-block">
+
+            <h3>
+
+                Explanation
+
+            </h3>
+
+            <p id="explanation"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../js/toast.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/question-details.js"></script>
+
+</body>
+
+</html>

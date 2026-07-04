@@ -1,0 +1,1497 @@
+/* ==========================================================
+   PlaceMentor AI
+   Master Admin - Admin Management
+========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:#F4F7FB;
+
+    color:#1E293B;
+
+    overflow-x:hidden;
+
+}
+
+/* ==========================================================
+   LAYOUT
+========================================================== */
+
+.dashboard{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+.sidebar{
+
+    width:270px;
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    height:100vh;
+
+    background:#0F172A;
+
+    color:#ffffff;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    box-shadow:4px 0 25px rgba(0,0,0,.18);
+
+    z-index:1000;
+
+}
+
+.sidebar::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#2563EB;
+
+    border-radius:20px;
+
+}
+
+.sidebar::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.logo{
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo-img{
+
+    width:78px;
+
+    margin-bottom:14px;
+
+    transition:.3s;
+
+}
+
+.logo-img:hover{
+
+    transform:rotate(8deg);
+
+}
+
+.logo h2{
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   SIDEBAR MENU
+========================================================== */
+
+.sidebar ul{
+
+    list-style:none;
+
+    padding:25px 15px;
+
+}
+
+.sidebar ul li{
+
+    margin-bottom:10px;
+
+    border-radius:14px;
+
+    transition:.3s;
+
+}
+
+.sidebar ul li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:16px 18px;
+
+    text-decoration:none;
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.sidebar ul li a i{
+
+    width:22px;
+
+    text-align:center;
+
+}
+
+.sidebar ul li:hover{
+
+    background:#2563EB;
+
+    transform:translateX(6px);
+
+}
+
+.sidebar ul li.active{
+
+    background:#2563EB;
+
+    box-shadow:0 10px 20px rgba(37,99,235,.35);
+
+}
+
+/* ==========================================================
+   MAIN
+========================================================== */
+
+.main{
+
+    margin-left:270px;
+
+    width:calc(100% - 270px);
+
+    min-height:100vh;
+
+    padding:35px;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.topbar h1{
+
+    font-size:34px;
+
+    color:#0F172A;
+
+    font-weight:700;
+
+}
+
+.topbar p{
+
+    margin-top:6px;
+
+    color:#64748B;
+
+    font-size:15px;
+
+}
+
+/* ==========================================================
+   CREATE ADMIN BUTTON
+========================================================== */
+
+.create-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:14px 24px;
+
+    border-radius:12px;
+
+    background:#2563EB;
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.create-btn:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 28px rgba(37,99,235,.25);
+
+}
+
+/* ==========================================================
+   SECTION TITLE
+========================================================== */
+
+.section-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.section-title h2{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#0F172A;
+
+}
+
+.section-title p{
+
+    color:#64748B;
+
+    font-size:14px;
+
+}
+/* ==========================================================
+   STATISTICS
+========================================================== */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:22px;
+
+    margin-bottom:35px;
+
+}
+
+.stat-card{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    box-shadow:0 12px 25px rgba(15,23,42,.08);
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.stat-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:#2563EB;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 35px rgba(37,99,235,.18);
+
+}
+
+.stat-card i{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(37,99,235,.12);
+
+    color:#2563EB;
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+}
+
+.stat-card h2{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#0F172A;
+
+    margin-bottom:8px;
+
+}
+
+.stat-card p{
+
+    color:#64748B;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+/* ==========================================================
+   TOOLBAR
+========================================================== */
+
+.toolbar{
+
+    background:#ffffff;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 12px 25px rgba(15,23,42,.08);
+
+    flex-wrap:wrap;
+
+}
+
+/* ==========================================================
+   SEARCH BOX
+========================================================== */
+
+.search-box{
+
+    flex:1;
+
+    min-width:280px;
+
+    position:relative;
+
+}
+
+.search-box i{
+
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#94A3B8;
+
+    font-size:15px;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    height:50px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:12px;
+
+    outline:none;
+
+    padding-left:50px;
+
+    padding-right:15px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.search-box input:focus{
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+/* ==========================================================
+   FILTER
+========================================================== */
+
+#statusFilter{
+
+    width:180px;
+
+    height:50px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:12px;
+
+    outline:none;
+
+    padding:0 15px;
+
+    background:#ffffff;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#statusFilter:focus{
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+/* ==========================================================
+   REFRESH BUTTON
+========================================================== */
+
+.refresh-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    height:50px;
+
+    padding:0 24px;
+
+    border-radius:12px;
+
+    background:#10B981;
+
+    color:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.refresh-btn:hover{
+
+    background:#059669;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 28px rgba(16,185,129,.25);
+
+}
+
+/* ==========================================================
+   RECORD COUNT
+========================================================== */
+
+.table-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.table-header h2{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#0F172A;
+
+}
+
+#recordCount{
+
+    background:#EFF6FF;
+
+    color:#2563EB;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+/* ==========================================================
+   TABLE CARD
+========================================================== */
+
+.table-card{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 12px 25px rgba(15,23,42,.08);
+
+    overflow-x:auto;
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:1000px;
+
+}
+
+thead{
+
+    background:#2563EB;
+
+}
+
+thead th{
+
+    color:#ffffff;
+
+    padding:16px;
+
+    text-align:left;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+tbody td{
+
+    padding:16px;
+
+    border-bottom:1px solid #E2E8F0;
+
+    font-size:14px;
+
+    vertical-align:middle;
+
+}
+
+tbody tr{
+
+    transition:.25s;
+
+}
+
+tbody tr:hover{
+
+    background:#F8FAFC;
+
+}
+
+/* ==========================================================
+   USER INFO
+========================================================== */
+
+.user-name{
+
+    font-weight:600;
+
+    color:#0F172A;
+
+}
+
+.user-email{
+
+    color:#64748B;
+
+    font-size:13px;
+
+}
+
+.user-id{
+
+    font-weight:600;
+
+    color:#2563EB;
+
+}
+
+/* ==========================================================
+   STATUS BADGES
+========================================================== */
+
+.status-active{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.status-inactive{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    background:#FEE2E2;
+
+    color:#DC2626;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================================
+   ROLE BADGES
+========================================================== */
+
+.role-master{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.role-admin{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    background:#DBEAFE;
+
+    color:#1D4ED8;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   ACTION BUTTONS
+========================================================== */
+
+.action-buttons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+}
+
+.action-btn{
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#ffffff;
+
+    transition:.25s;
+
+}
+
+.action-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* View */
+
+.view-btn{
+
+    background:#2563EB;
+
+}
+
+.view-btn:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* Edit */
+
+.edit-btn{
+
+    background:#F59E0B;
+
+}
+
+.edit-btn:hover{
+
+    background:#D97706;
+
+}
+
+/* Activate */
+
+.activate-btn{
+
+    background:#16A34A;
+
+}
+
+.activate-btn:hover{
+
+    background:#15803D;
+
+}
+
+/* Deactivate */
+
+.deactivate-btn{
+
+    background:#EA580C;
+
+}
+
+.deactivate-btn:hover{
+
+    background:#C2410C;
+
+}
+
+/* Reset */
+
+.reset-btn{
+
+    background:#7C3AED;
+
+}
+
+.reset-btn:hover{
+
+    background:#6D28D9;
+
+}
+
+/* Delete */
+
+.delete-btn{
+
+    background:#DC2626;
+
+}
+
+.delete-btn:hover{
+
+    background:#B91C1C;
+
+}
+
+/* ==========================================================
+   PAGINATION
+========================================================== */
+
+.pagination{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:30px;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+.pagination button{
+
+    border:none;
+
+    cursor:pointer;
+
+    background:#2563EB;
+
+    color:#ffffff;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.pagination button:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+}
+
+.pagination button:disabled{
+
+    background:#CBD5E1;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+#pageInfo{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#475569;
+
+}
+/* ==========================================================
+   MODAL
+========================================================== */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(15,23,42,.55);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+    padding:20px;
+
+}
+
+.modal.show{
+
+    display:flex;
+
+    animation:fadeIn .25s ease;
+
+}
+
+.modal-content{
+
+    width:100%;
+
+    max-width:500px;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+
+    animation:slideUp .3s ease;
+
+}
+
+.modal-header{
+
+    padding:20px 25px;
+
+    background:#2563EB;
+
+    color:#ffffff;
+
+}
+
+.modal-header h2{
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.modal-body{
+
+    padding:25px;
+
+    color:#475569;
+
+    line-height:1.7;
+
+}
+
+.modal-footer{
+
+    padding:20px 25px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    background:#F8FAFC;
+
+}
+
+/* ==========================================================
+   GENERATED PASSWORD
+========================================================== */
+
+.generated-password{
+
+    margin-top:18px;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    background:#EFF6FF;
+
+    border:1px solid #BFDBFE;
+
+    color:#1D4ED8;
+
+    font-weight:700;
+
+    font-size:18px;
+
+    text-align:center;
+
+    letter-spacing:1px;
+
+    word-break:break-all;
+
+}
+
+/* ==========================================================
+   MODAL BUTTONS
+========================================================== */
+
+.btn-primary,
+.btn-delete,
+.btn-cancel{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-primary{
+
+    background:#2563EB;
+
+    color:#ffffff;
+
+}
+
+.btn-primary:hover{
+
+    background:#1D4ED8;
+
+}
+
+.btn-delete{
+
+    background:#DC2626;
+
+    color:#ffffff;
+
+}
+
+.btn-delete:hover{
+
+    background:#B91C1C;
+
+}
+
+.btn-cancel{
+
+    background:#CBD5E1;
+
+    color:#0F172A;
+
+}
+
+.btn-cancel:hover{
+
+    background:#94A3B8;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    margin-top:40px;
+
+    padding:25px;
+
+    text-align:center;
+
+    color:#64748B;
+
+    border-top:1px solid #E2E8F0;
+
+    font-size:14px;
+
+}
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes slideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:1200px){
+
+    .stats-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    .sidebar{
+
+        width:90px;
+
+    }
+
+    .logo h2{
+
+        display:none;
+
+    }
+
+    .sidebar ul li a{
+
+        justify-content:center;
+
+        font-size:0;
+
+    }
+
+    .sidebar ul li a i{
+
+        font-size:20px;
+
+    }
+
+    .main{
+
+        margin-left:90px;
+
+        width:calc(100% - 90px);
+
+        padding:25px;
+
+    }
+
+    .topbar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .stats-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .search-box{
+
+        width:100%;
+
+        min-width:100%;
+
+    }
+
+    #statusFilter{
+
+        width:100%;
+
+    }
+
+    .refresh-btn{
+
+        width:100%;
+
+    }
+
+    table{
+
+        display:block;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+    }
+
+    .pagination{
+
+        justify-content:center;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .main{
+
+        padding:18px;
+
+    }
+
+    .topbar h1{
+
+        font-size:28px;
+
+    }
+
+    .create-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .modal-content{
+
+        max-width:100%;
+
+    }
+
+}
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
+body.dark .stat-card,
+body.dark .table-card,
+body.dark .toolbar,
+body.dark .modal-content{
+
+    background:#1E293B;
+
+    color:#F8FAFC;
+
+}
+
+body.dark tbody td{
+
+    border-color:#334155;
+
+}
+
+body.dark .search-box input,
+body.dark #statusFilter{
+
+    background:#334155;
+
+    color:#F8FAFC;
+
+    border-color:#475569;
+
+}
+
+body.dark .modal-footer{
+
+    background:#334155;
+
+}
+
+body.dark footer{
+
+    border-color:#334155;
+
+}
+
+/* ==========================================================
+   END
+========================================================== */
