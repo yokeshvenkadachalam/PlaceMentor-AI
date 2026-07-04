@@ -4,7 +4,7 @@
 ========================================== */
 
 const API_URL =
-    "http://localhost:8080/api/admin/dashboard";
+    "https://placementor-backend-5lv4.onrender.com/api/admin/dashboard";
 
 let dashboardData = {};
 let studentChart = null;

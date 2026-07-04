@@ -123,10 +123,10 @@ if (
 ) {
 
     profileImage.src =
-        "http://localhost:8080/uploads/profiles/" +
-        student.profileImage +
-        "?t=" +
-        Date.now();
+    "https://placementor-backend-5lv4.onrender.com/uploads/profiles/" +
+    student.profileImage +
+    "?t=" +
+    Date.now();
 
 }
 else {

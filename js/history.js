@@ -26,7 +26,7 @@ async function loadQuizHistory() {
 
         const response = await fetch(
 
-            "http://localhost:8080/api/quiz/history",
+            "https://placementor-backend-5lv4.onrender.com/api/quiz/history",
 
             {
                 headers: {
@@ -120,7 +120,7 @@ async function loadCategories() {
 
         const response = await fetch(
 
-            "http://localhost:8080/api/quiz/categories",
+            "https://placementor-backend-5lv4.onrender.com/api/quiz/categories",
 
             {
 
@@ -214,7 +214,7 @@ async function categoryChanged() {
     const categories =
         await fetch(
 
-            "http://localhost:8080/api/quiz/categories",
+            "https://placementor-backend-5lv4.onrender.com/api/quiz/categories",
 
             {
 
@@ -248,7 +248,7 @@ async function categoryChanged() {
     const response =
         await fetch(
 
-            "http://localhost:8080/api/quiz/topics/"
+            "https://placementor-backend-5lv4.onrender.com/api/quiz/topics/"
             + category.id,
 
             {
@@ -349,7 +349,7 @@ async function applyFilters() {
 
         const response = await fetch(
 
-            "http://localhost:8080/api/quiz/history/filter?" +
+            "https://placementor-backend-5lv4.onrender.com/api/quiz/history/filter?" +
             params.toString(),
 
             {

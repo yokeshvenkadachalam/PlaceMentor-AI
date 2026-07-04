@@ -3,7 +3,7 @@
    Reports Module (Backend Version)
 ========================================== */
 
-const API_URL = "http://localhost:8080/api/quiz/reports";
+const API_URL = "https://placementor-backend-5lv4.onrender.com/api/quiz/reports";
 
 let report = {};
 let quizHistory = [];

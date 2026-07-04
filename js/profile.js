@@ -337,7 +337,7 @@ function populateProfile() {
 
         profileImage.src =
 
-            "http://localhost:8080/uploads/profiles/"
+            "https://placementor-backend-5lv4.onrender.com/uploads/profiles/"
 
             +
 
@@ -1047,7 +1047,7 @@ function previewResume() {
 
     window.open(
 
-        "http://localhost:8080/uploads/resumes/" +
+        "https://placementor-backend-5lv4.onrender.com/uploads/resumes/" +
 
         uploadedResume,
 

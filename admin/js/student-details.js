@@ -100,7 +100,7 @@ async function loadStudentDetails() {
         if (student.profileImage) {
 
             image.src =
-                "http://localhost:8080/uploads/" +
+                "https://placementor-backend-5lv4.onrender.com/uploads/" +
                 student.profileImage;
 
         } else {

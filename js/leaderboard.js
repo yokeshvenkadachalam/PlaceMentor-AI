@@ -3,7 +3,7 @@
    Professional Leaderboard
 ========================================== */
 
-const API_URL = "http://localhost:8080/api/quiz/leaderboard";
+const API_URL = "https://placementor-backend-5lv4.onrender.com/api/quiz/leaderboard";
 
 let leaderboard = [];
 
@@ -155,7 +155,7 @@ function createPodiumCard(student, medal) {
 
     let image =
         student.profileImage
-            ? `http://localhost:8080/uploads/${student.profileImage}`
+            ? `https://placementor-backend-5lv4.onrender.com/uploads/${student.profileImage}`
             : "https://ui-avatars.com/api/?name=" +
               encodeURIComponent(student.studentName);
 

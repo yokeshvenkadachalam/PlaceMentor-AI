@@ -193,7 +193,7 @@ public ResponseEntity<?> uploadProfileImage(
         response.put("filename", filename);
         response.put(
                 "url",
-                "http://localhost:8080/uploads/profiles/" + filename
+                "https://placementor-backend-5lv4.onrender.com/uploads/profiles/" + filename
         );
 
         return ResponseEntity.ok(response);
@@ -231,7 +231,7 @@ public ResponseEntity<?> uploadResume(
         response.put("filename", filename);
         response.put(
                 "url",
-                "http://localhost:8080/uploads/resumes/" + filename
+                "https://placementor-backend-5lv4.onrender.com/uploads/resumes/" + filename
         );
 
         return ResponseEntity.ok(response);

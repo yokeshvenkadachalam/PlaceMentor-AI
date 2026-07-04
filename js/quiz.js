@@ -8,7 +8,7 @@
    CONFIG
 ========================================== */
 
-const API_BASE = "http://localhost:8080/api";
+const API_BASE = "https://placementor-backend-5lv4.onrender.com/api";
 
 /* ==========================================
    GLOBAL VARIABLES
