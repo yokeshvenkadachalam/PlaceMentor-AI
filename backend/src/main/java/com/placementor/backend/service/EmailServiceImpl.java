@@ -6,28 +6,25 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class EmailServiceImpl implements EmailService {
 
-    @Value("${resend.api.key}")
-    private String resendApiKey;
+    @Value("${brevo.api.key}")
+    private String brevoApiKey;
 
-    @Value("${resend.from.email}")
+    @Value("${brevo.from.email}")
     private String fromEmail;
 
     private final RestClient restClient;
 
     public EmailServiceImpl(RestClient.Builder restClientBuilder) {
         this.restClient = restClientBuilder
-                .baseUrl("https://api.resend.com")
+                .baseUrl("https://api.brevo.com")
                 .build();
     }
-
-    /* ==========================================
-       SEND EMAIL USING RESEND
-    ========================================== */
 
     @Override
     public void sendEmail(
@@ -36,18 +33,31 @@ public class EmailServiceImpl implements EmailService {
             String body
     ) {
 
+        Map<String, Object> sender = Map.of(
+                "name", "PlaceMentor AI",
+                "email", fromEmail
+        );
+
+        Map<String, Object> recipient = Map.of(
+                "email", to
+        );
+
         Map<String, Object> emailRequest = Map.of(
-                "from", fromEmail,
-                "to", to,
+                "sender", sender,
+                "to", List.of(recipient),
                 "subject", subject,
-                "text", body
+                "textContent", body
         );
 
         restClient.post()
-                .uri("/emails")
+                .uri("/v3/smtp/email")
                 .header(
-                        HttpHeaders.AUTHORIZATION,
-                        "Bearer " + resendApiKey
+                        "api-key",
+                        brevoApiKey
+                )
+                .header(
+                        HttpHeaders.ACCEPT,
+                        MediaType.APPLICATION_JSON_VALUE
                 )
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(emailRequest)
