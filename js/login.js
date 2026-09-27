@@ -13,13 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (loginForm) {
 
-        loginForm.addEventListener(
-
-            "submit",
-
-            loginUser
-
-        );
+        loginForm.addEventListener("submit", loginUser);
 
     }
 
@@ -27,23 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
        REMEMBER ME
     ========================== */
 
-    const rememberedUser =
-
-        getRememberUser();
+    const rememberedUser = getRememberUser();
 
     if (rememberedUser) {
 
-        document.getElementById(
+        const emailInput = document.getElementById("loginEmail");
+        const rememberCheckbox = document.getElementById("remember");
 
-            "loginEmail"
+        if (emailInput) {
+            emailInput.value = rememberedUser.email || "";
+        }
 
-        ).value = rememberedUser.email;
-
-        document.getElementById(
-
-            "remember"
-
-        ).checked = true;
+        if (rememberCheckbox) {
+            rememberCheckbox.checked = true;
+        }
 
     }
 
@@ -51,69 +42,101 @@ document.addEventListener("DOMContentLoaded", () => {
        FORGOT PASSWORD
     ========================== */
 
-    const forgotBtn =
-
-        document.getElementById(
-
-            "forgotPassword"
-
-        );
+    const forgotBtn = document.getElementById("forgotPassword");
 
     if (forgotBtn) {
 
-        forgotBtn.addEventListener(
-
-            "click",
-
-            forgotPassword
-
-        );
+        forgotBtn.addEventListener("click", forgotPassword);
 
     }
 
 });
 
+
 /* ==========================================
    LOGIN USER
 ========================================== */
 
+let loginInProgress = false;
+
 async function loginUser(e) {
+    console.count("LOGIN USER CALLED");
 
     e.preventDefault();
 
-    const email =
-        document
-            .getElementById("loginEmail")
-            .value
-            .trim()
-            .toLowerCase();
+    /* ==========================
+       PREVENT MULTIPLE REQUESTS
+    ========================== */
 
-    const password =
-        document
-            .getElementById("loginPassword")
-            .value
-            .trim();
+    if (loginInProgress) {
 
-    const remember =
-        document
-            .getElementById("remember")
-            .checked;
-
-    if (!email || !password) {
-
-        showToast(
-
-            "Please enter Email and Password.",
-
-            "warning"
-
-        );
+        console.log("Login already in progress. Ignoring duplicate request.");
 
         return;
 
     }
 
+    loginInProgress = true;
+
+    const loginForm = document.getElementById("loginForm");
+
+    const submitButton =
+        loginForm?.querySelector('button[type="submit"]');
+
+    if (submitButton) {
+
+        submitButton.disabled = true;
+
+    }
+
+
     try {
+
+        /* ==========================
+           GET FORM VALUES
+        ========================== */
+
+        const email =
+            document
+                .getElementById("loginEmail")
+                .value
+                .trim()
+                .toLowerCase();
+
+        const password =
+            document
+                .getElementById("loginPassword")
+                .value
+                .trim();
+
+        const remember =
+            document
+                .getElementById("remember")
+                .checked;
+
+
+        /* ==========================
+           VALIDATION
+        ========================== */
+
+        if (!email || !password) {
+
+            showToast(
+                "Please enter Email and Password.",
+                "warning"
+            );
+
+            return;
+
+        }
+
+
+        console.log("Sending login request...");
+
+
+        /* ==========================
+           LOGIN API
+        ========================== */
 
         const response = await fetch(
 
@@ -141,13 +164,45 @@ async function loginUser(e) {
 
         );
 
-        const data = await response.json();
 
-        if (!response.ok) {
+        /* ==========================
+           READ RESPONSE SAFELY
+        ========================== */
+
+        const responseText = await response.text();
+
+        console.log(
+            "Login response status:",
+            response.status
+        );
+
+        console.log(
+            "Login response:",
+            responseText
+        );
+
+
+        let data = {};
+
+        try {
+
+            data = responseText
+                ? JSON.parse(responseText)
+                : {};
+
+        }
+
+        catch (jsonError) {
+
+            console.error(
+                "Server returned non-JSON response:",
+                responseText
+            );
 
             showToast(
 
-                data.message || "Login Failed",
+                responseText ||
+                "Invalid response from server.",
 
                 "error"
 
@@ -157,15 +212,54 @@ async function loginUser(e) {
 
         }
 
+
+        /* ==========================
+           LOGIN FAILED
+        ========================== */
+
+        if (!response.ok) {
+
+            showToast(
+
+                data.message ||
+                data.error ||
+                "Login Failed",
+
+                "error"
+
+            );
+
+            return;
+
+        }
+
+
+        /* ==========================
+           CHECK TOKEN
+        ========================== */
+
+        if (!data.token) {
+
+            console.error(
+                "Login succeeded but JWT token is missing."
+            );
+
+            showToast(
+                "Login response does not contain a token.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
         /* ==========================
            SAVE JWT TOKEN
         ========================== */
 
-        saveToken(
+        saveToken(data.token);
 
-            data.token
-
-        );
 
         /* ==========================
            SAVE CURRENT USER
@@ -173,23 +267,20 @@ async function loginUser(e) {
 
         const currentUser = {
 
-    studentId: data.studentId,
+            studentId: data.studentId,
 
-    name: data.name,
+            name: data.name,
 
-    email: data.email,
+            email: data.email,
 
-    role: data.role,
+            role: data.role,
 
-    masterAdmin: data.masterAdmin
+            masterAdmin: data.masterAdmin
 
-};
+        };
 
-        saveCurrentUser(
+        saveCurrentUser(currentUser);
 
-            currentUser
-
-        );
 
         /* ==========================
            REMEMBER ME
@@ -197,25 +288,26 @@ async function loginUser(e) {
 
         if (remember) {
 
-            saveRememberUser(
+            saveRememberUser(currentUser);
 
-                currentUser
+        }
 
-            );
-
-        } else {
+        else {
 
             clearRememberUser();
 
         }
 
+
+        /* ==========================
+           SUCCESS
+        ========================== */
+
         showToast(
-
             "Login Successful",
-
             "success"
-
         );
+
 
         /* ==========================
            REDIRECT
@@ -224,60 +316,73 @@ async function loginUser(e) {
         setTimeout(() => {
 
             if (
+                data.role &&
+                data.role.toUpperCase() === "ADMIN"
+            ) {
 
-    data.role &&
-    data.role.toUpperCase() === "ADMIN"
+                if (data.masterAdmin === true) {
 
-) {
+                    window.location.href =
+                        "master-admin/dashboard.html";
 
-    if (data.masterAdmin) {
+                }
 
-        window.location.href =
-            "master-admin/dashboard.html";
+                else {
 
-    }
+                    window.location.href =
+                        "admin/dashboard.html";
 
-    else {
+                }
 
-        window.location.href =
-            "admin/dashboard.html";
+            }
 
-    }
+            else {
 
-}
+                window.location.href =
+                    "dashboard.html";
 
-else {
+            }
 
-    window.location.href =
-        "dashboard.html";
-
-}
-
-        }, 1000);
+        }, 500);
 
     }
+
 
     catch (error) {
 
-        console.error(error);
+        console.error(
+            "Login error:",
+            error
+        );
 
         showToast(
-
             "Unable to connect to the server.",
-
             "error"
-
         );
 
     }
 
+
+    finally {
+
+        loginInProgress = false;
+
+        if (submitButton) {
+
+            submitButton.disabled = false;
+
+        }
+
+    }
+
 }
+
 
 /* ==========================================
    FORGOT PASSWORD
 ========================================== */
 
-function forgotPassword(e){
+function forgotPassword(e) {
 
     e.preventDefault();
 
@@ -290,6 +395,8 @@ function forgotPassword(e){
     );
 
 }
+
+
 /* ==========================================
    AUTO LOGIN
 ========================================== */
@@ -306,29 +413,33 @@ function forgotPassword(e){
 
     }
 
+
+    /* ==========================
+       AUTO REDIRECT
+    ========================== */
+
     if (
+        user.role &&
+        user.role.toUpperCase() === "ADMIN"
+    ) {
 
-    user.role &&
-    user.role.toUpperCase() === "ADMIN"
+        if (user.masterAdmin === true) {
 
-) {
+            window.location.href =
+                "master-admin/dashboard.html";
 
-    if (user.masterAdmin) {
+        }
 
-        alert("Going to Master Admin Dashboard");
-window.location.href =
-    "master-admin/dashboard.html";
+        else {
+
+            window.location.href =
+                "admin/dashboard.html";
+
+        }
 
     }
 
     else {
-
-        window.location.href =
-            "admin/dashboard.html";
-
-    }
-
-} else {
 
         window.location.href =
             "dashboard.html";
@@ -336,6 +447,7 @@ window.location.href =
     }
 
 })();
+
 
 /* ==========================================
    LOGOUT
@@ -350,11 +462,8 @@ function logout() {
     clearRememberUser();
 
     showToast(
-
         "Logged Out Successfully",
-
         "success"
-
     );
 
     setTimeout(() => {
